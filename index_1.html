@@ -1,0 +1,2985 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Guess or Mess - The Serpent Wheel. Shree Balaji Rajasthani Mandal, Ganesh Utsav 2026.">
+<meta name="theme-color" content="#0e2019">
+<title>The Serpent Wheel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;900&family=Cinzel+Decorative:wght@700;900&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Noto+Serif+Devanagari:wght@600;700;800&display=swap">
+<style>
+  /* Single committed world: a lamplit antique casino cabinet — stays wood-panelled
+     regardless of the viewer's OS theme, the way a physical wheel would. */
+  :root{
+    --felt-1:#0e2019;
+    --felt-2:#0a1712;
+    --wood-1:#4a2a18;
+    --wood-2:#2a160c;
+    --wood-3:#1a0d07;
+    --brass-1:#f0d492;
+    --brass-2:#c9974a;
+    --brass-3:#8a6423;
+    --brass-shadow:#3d2a0e;
+    --burgundy:#7a2233;
+    --burgundy-deep:#4e131f;
+    --emerald:#1f4d3a;
+    --emerald-deep:#0f2b20;
+    --onyx:#191220;
+    --onyx-deep:#0c0810;
+    --cream:#f3e7cc;
+    --cream-dim:#cbb98f;
+    --ink:#1a1310;
+  }
+
+  *{box-sizing:border-box;}
+
+  html,body{ height:100%; }
+
+  body{
+    margin:0;
+    min-height:100dvh;
+    background:
+      radial-gradient(ellipse 120% 90% at 50% 12%, #1c3327 0%, transparent 60%),
+      radial-gradient(ellipse 140% 100% at 50% 100%, var(--felt-2) 0%, #060d0a 100%),
+      var(--felt-1);
+    background-blend-mode:normal;
+    color:var(--cream);
+    font-family:"EB Garamond", Georgia, "Times New Roman", serif;
+    display:flex;
+    flex-direction:column;
+    align-items:stretch;
+    justify-content:flex-start;
+    padding:clamp(5px,1vh,12px) clamp(8px,1.2vw,18px);
+    overflow:hidden;
+  }
+
+  /* faint felt weave texture */
+  body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    opacity:.5;
+    background-image:
+      repeating-linear-gradient(45deg, rgba(255,255,255,.015) 0 2px, transparent 2px 4px),
+      repeating-linear-gradient(-45deg, rgba(0,0,0,.05) 0 2px, transparent 2px 4px);
+    z-index:0;
+  }
+
+  header{
+    width:100%;
+    max-width:100%;
+    display:flex;
+    align-items:center;
+    gap:clamp(8px,1.6vw,20px);
+    margin-bottom:clamp(4px,.9vh,10px);
+    flex:0 0 auto;
+    /* keep the now full-width headings clear of the fixed sound button */
+    padding-right:calc(clamp(34px,4.4vh,44px) + clamp(10px,1.6vw,18px) + 10px);
+  }
+  .head-text{
+    flex:1 1 auto;
+    min-width:0;
+    text-align:center;
+  }
+
+  .sub-heading{
+    margin:2px 0 0;
+    font-family:"Cinzel", serif;
+    font-weight:700;
+    font-size:clamp(.7rem, 1.5vw, 1.25rem);
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:#f6dfae;
+    text-shadow:0 1px 3px rgba(0,0,0,.65);
+    white-space:nowrap;
+    max-width:100%;
+  }
+  .sub-heading .fit-line{
+    display:inline-block;
+    transform-origin:0 50%;
+  }
+  .sub-heading .fit-line::before,
+  .sub-heading .fit-line::after{
+    content:"\2726";
+    display:inline-block;
+    margin:0 .55em;
+    font-size:.6em;
+    color:var(--brass-3);
+    vertical-align:middle;
+    transform:translateY(-.05em);
+  }
+
+  .event-heading{
+    margin:0 0 4px;
+    line-height:1.08;
+    white-space:nowrap;
+    max-width:100%;
+  }
+  .event-heading .fit-line{
+    display:inline-block;
+    font-family:"Cinzel Decorative", "Cinzel", serif;
+    font-weight:900;
+    font-size:clamp(.95rem, 2.5vw, 2.2rem);
+    letter-spacing:.015em;
+    color:#fffaf0;
+    text-shadow:
+      0 2px 4px rgba(0,0,0,.75),
+      0 0 26px rgba(255,226,170,.35);
+    transform-origin:0 50%;
+    animation:title-hues 24s linear infinite;
+  }
+
+  /* the marquee title drifts slowly through pale, bright colours */
+  @keyframes title-hues{
+    0%   { color:#fffbe8; text-shadow:0 2px 4px rgba(0,0,0,.75), 0 0 30px rgba(255,228,150,.55); }
+    12%  { color:#d9fff1; text-shadow:0 2px 4px rgba(0,0,0,.75), 0 0 30px rgba(130,255,215,.55); }
+    25%  { color:#d8f0ff; text-shadow:0 2px 4px rgba(0,0,0,.75), 0 0 30px rgba(130,210,255,.55); }
+    37%  { color:#e6ddff; text-shadow:0 2px 4px rgba(0,0,0,.75), 0 0 30px rgba(180,155,255,.55); }
+    50%  { color:#ffdcf0; text-shadow:0 2px 4px rgba(0,0,0,.75), 0 0 30px rgba(255,150,215,.55); }
+    62%  { color:#ffdedd; text-shadow:0 2px 4px rgba(0,0,0,.75), 0 0 30px rgba(255,150,140,.55); }
+    75%  { color:#fff0d2; text-shadow:0 2px 4px rgba(0,0,0,.75), 0 0 30px rgba(255,195,110,.55); }
+    87%  { color:#eaffd6; text-shadow:0 2px 4px rgba(0,0,0,.75), 0 0 30px rgba(190,255,140,.55); }
+    100% { color:#fffbe8; text-shadow:0 2px 4px rgba(0,0,0,.75), 0 0 30px rgba(255,228,150,.55); }
+  }
+
+  /* ---------- Password gate ---------- */
+  .gate{
+    position:fixed;
+    inset:0;
+    z-index:200;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:24px;
+    background:
+      radial-gradient(ellipse 90% 70% at 50% 35%, #1d3629 0%, #0a1712 65%, #050b08 100%);
+    transition:opacity .55s ease, visibility 0s linear .55s;
+  }
+  .gate.unlocked{
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+  }
+  .gate-card{
+    width:min(92vw, 520px);
+    text-align:center;
+    padding:clamp(20px,4vh,42px) clamp(18px,3vw,40px);
+    border-radius:16px;
+    background:linear-gradient(180deg, rgba(64,37,22,.92), rgba(24,13,7,.96));
+    box-shadow:
+      inset 0 0 0 1px rgba(201,151,74,.6),
+      inset 0 0 0 5px rgba(0,0,0,.5),
+      inset 0 0 70px rgba(0,0,0,.6),
+      0 24px 50px -18px rgba(0,0,0,.95);
+  }
+  .gate-card.shake{ animation:miss-shake .45s ease; }
+  .gate-key{
+    font-size:clamp(1.9rem,6vh,3.4rem);
+    line-height:1;
+    color:var(--brass-1);
+    filter:drop-shadow(0 3px 8px rgba(0,0,0,.8));
+  }
+  .gate-card h2{
+    margin:clamp(8px,1.6vh,16px) 0 clamp(4px,1vh,10px);
+    font-family:"Cinzel Decorative","Cinzel",serif;
+    font-weight:900;
+    font-size:clamp(1.05rem,2.8vh,1.85rem);
+    letter-spacing:.07em;
+    text-transform:uppercase;
+    color:#f8e4b4;
+    text-shadow:0 2px 5px rgba(0,0,0,.85);
+  }
+  .gate-card p{
+    margin:0 0 clamp(12px,2.2vh,22px);
+    font-family:"EB Garamond",serif;
+    font-style:italic;
+    font-size:clamp(.8rem,1.9vh,1.1rem);
+    color:var(--cream-dim);
+  }
+  .gate-row{
+    display:flex;
+    gap:10px;
+    justify-content:center;
+    flex-wrap:wrap;
+  }
+  #gateInput{
+    flex:1 1 200px;
+    min-width:0;
+    padding:clamp(8px,1.5vh,14px) 16px;
+    border-radius:999px;
+    border:none;
+    outline:none;
+    text-align:center;
+    font-family:"Cinzel",serif;
+    font-weight:700;
+    font-size:clamp(.9rem,2vh,1.25rem);
+    letter-spacing:.28em;
+    color:#3a1f0b;
+    background:linear-gradient(180deg,#f8ecd0,#dcc08c);
+    box-shadow:
+      inset 0 2px 6px rgba(0,0,0,.35),
+      0 0 0 2px var(--brass-3);
+  }
+  #gateInput:focus{ box-shadow:inset 0 2px 6px rgba(0,0,0,.35), 0 0 0 3px var(--brass-1); }
+  .gate-err{
+    margin:clamp(8px,1.6vh,14px) 0 0;
+    min-height:1.3em;
+    font-family:"Cinzel",serif;
+    font-size:clamp(.66rem,1.5vh,.88rem);
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:#ff9a8c;
+    opacity:0;
+    transition:opacity .25s ease;
+  }
+  .gate-err.show{ opacity:1; }
+
+  /* sound toggle, so the sound can be killed instantly on a live PA */
+  #soundBtn{
+    position:fixed;
+    top:clamp(8px,1.6vh,16px);
+    right:clamp(10px,1.6vw,18px);
+    z-index:60;
+    appearance:none;
+    -webkit-appearance:none;
+    cursor:pointer;
+    width:clamp(34px,4.4vh,44px);
+    height:clamp(34px,4.4vh,44px);
+    border-radius:50%;
+    border:1px solid rgba(201,151,74,.5);
+    background:rgba(20,12,6,.72);
+    color:var(--brass-1);
+    font-size:clamp(.9rem,1.6vh,1.15rem);
+    line-height:1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition:transform .12s ease, border-color .12s ease, color .12s ease;
+  }
+  #soundBtn:hover{ transform:scale(1.06); border-color:var(--brass-1); }
+  #soundBtn:focus-visible{ outline:3px solid var(--brass-1); outline-offset:3px; }
+  #soundBtn.is-muted{ color:#c98b8b; border-color:rgba(201,120,120,.5); }
+
+  /* brand mark, top-left of the header row */
+  .brand-logo{
+    flex:0 0 auto;
+    width:clamp(38px, 6.2vh, 78px);
+    line-height:0;
+    pointer-events:none;
+  }
+  .brand-logo svg{
+    display:block;
+    width:100%;
+    height:auto;
+    filter:drop-shadow(0 4px 8px rgba(0,0,0,.6));
+  }
+
+  /* ---------- Cabinet ---------- */
+  .cabinet{
+    position:relative;
+    flex:0 0 auto;
+    width:min(100%, 100%, 74vh);
+    aspect-ratio:1;
+    border-radius:50%;
+    background:
+      radial-gradient(circle at 32% 26%, var(--wood-1) 0%, var(--wood-2) 55%, var(--wood-3) 100%);
+    box-shadow:
+      0 22px 46px -14px rgba(0,0,0,.75),
+      0 0 0 6px var(--wood-3),
+      inset 0 0 0 2px rgba(255,214,150,.12),
+      inset 0 14px 34px rgba(0,0,0,.55),
+      inset 0 -10px 26px rgba(0,0,0,.4);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+
+  /* lathe rings carved into the wood rim */
+  .cabinet::before{
+    content:"";
+    position:absolute;
+    inset:8px;
+    border-radius:50%;
+    background:
+      repeating-radial-gradient(circle at 50% 50%,
+        rgba(0,0,0,.16) 0px, rgba(0,0,0,.16) 1.5px,
+        rgba(255,214,150,.08) 1.5px, rgba(255,214,150,.08) 3px,
+        transparent 3px, transparent 7px);
+    pointer-events:none;
+  }
+
+  .studs{
+    position:absolute;
+    inset:0;
+  }
+  /* neon disco bulbs chasing around the rim, three phases out of step */
+  .bulb{
+    --bulb: clamp(7px, 1.55vmin, 15px);
+    position:absolute;
+    top:50%; left:50%;
+    width:var(--bulb);
+    height:var(--bulb);
+    margin:calc(var(--bulb) / -2) 0 0 calc(var(--bulb) / -2);
+    border-radius:50%;
+    background:radial-gradient(circle at 50% 42%,
+      #fffce0 0%, #ffef6b 34%, #ffd824 62%, #c99206 100%);
+    box-shadow:
+      0 0 3px #fff29a,
+      0 0 8px rgba(255,231,74,.95),
+      0 0 17px rgba(255,214,40,.7),
+      0 0 30px rgba(255,200,20,.35),
+      inset 0 0 2px rgba(255,255,255,.9);
+    animation:bulb-chase .9s linear infinite;
+    will-change:opacity, transform;
+  }
+  @keyframes bulb-chase{
+    0%, 28%   { opacity:1;   transform:scale(1.12); }
+    40%, 100% { opacity:.22; transform:scale(.86); }
+  }
+
+  .wheel-well{
+    position:relative;
+    width:84%;
+    aspect-ratio:1;
+    border-radius:50%;
+    box-shadow:
+      inset 0 0 0 3px var(--brass-3),
+      inset 0 8px 22px rgba(0,0,0,.65),
+      0 0 0 3px var(--wood-3),
+      0 0 18px 2px rgba(0,0,0,.5);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+  }
+
+  #wheelCanvas{
+    width:100%;
+    height:100%;
+    display:block;
+    transform:rotate(0deg);
+    will-change:transform;
+  }
+
+  /* pointer, fixed at top, mounted on a small brass hinge */
+  .pointer{
+    position:absolute;
+    top:clamp(-12px,-1.56vmin,-5px);
+    left:50%;
+    transform:translateX(-50%);
+    z-index:5;
+    width:clamp(48px,10.32vmin,96px);
+    height:clamp(60px,12.48vmin,115px);
+    filter:drop-shadow(0 4px 8px rgba(0,0,0,.6));
+  }
+  .pointer-tip{
+    position:absolute;
+    top:26%; left:50%;
+    transform:translateX(-50%);
+    width:0; height:0;
+    border-left:clamp(14px,3.36vmin,31px) solid transparent;
+    border-right:clamp(14px,3.36vmin,31px) solid transparent;
+    border-top:clamp(31px,7.2vmin,67px) solid var(--brass-2);
+  }
+  .pointer-tip::after{
+    content:"";
+    position:absolute;
+    top:calc(-1 * clamp(31px,7.2vmin,67px));
+    left:calc(-1 * clamp(11px,2.4vmin,23px));
+    width:0;height:0;
+    border-left:clamp(11px,2.4vmin,23px) solid transparent;
+    border-right:clamp(11px,2.4vmin,23px) solid transparent;
+    border-top:clamp(24px,5.4vmin,50px) solid var(--brass-1);
+  }
+  .pointer-hinge{
+    position:absolute;
+    top:0; left:50%;
+    transform:translateX(-50%);
+    width:clamp(20px,4.32vmin,41px); height:clamp(20px,4.32vmin,41px);
+    border-radius:50%;
+    background:radial-gradient(circle at 35% 30%, var(--brass-1), var(--brass-2) 50%, var(--brass-3) 100%);
+    box-shadow:0 2px 4px rgba(0,0,0,.6), inset 0 0 3px rgba(255,255,255,.6);
+  }
+
+  /* center hub / spin button */
+  .hub-wrap{
+    position:absolute;
+    top:50%; left:50%;
+    transform:translate(-50%,-50%);
+    z-index:4;
+  }
+  #spinBtn{
+    appearance:none;
+    -webkit-appearance:none;
+    border:none;
+    cursor:pointer;
+    width:clamp(86px,21.6vmin,202px);
+    height:clamp(86px,21.6vmin,202px);
+    border-radius:50%;
+    background:
+      radial-gradient(circle at 34% 26%, var(--brass-1) 0%, var(--brass-2) 42%, var(--brass-3) 78%, var(--brass-shadow) 100%);
+    box-shadow:
+      0 8px 16px rgba(0,0,0,.55),
+      0 0 0 4px var(--wood-3),
+      0 0 0 6px var(--brass-3),
+      inset 0 3px 4px rgba(255,255,255,.55),
+      inset 0 -6px 10px rgba(0,0,0,.4);
+    font-family:"Cinzel", serif;
+    font-weight:900;
+    font-size:clamp(1.35rem,4.2vmin,2.6rem);
+    letter-spacing:.1em;
+    color:#41280a;
+    text-shadow:0 1px 0 rgba(255,255,255,.35);
+    transition:transform .12s ease, box-shadow .12s ease;
+  }
+  #spinBtn:hover{ transform:scale(1.035); }
+  #spinBtn:active{ transform:scale(.97); }
+  #spinBtn:focus-visible{
+    outline:3px solid var(--brass-1);
+    outline-offset:4px;
+  }
+  #spinBtn:disabled{ cursor:default; }
+  #spinBtn:disabled:hover{ transform:none; }
+
+  /* ---------- Full-screen result pop-up ---------- */
+  .result-overlay{
+    position:fixed;
+    inset:0;
+    z-index:50;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:24px;
+    perspective:900px;
+    overflow:hidden;
+    background:radial-gradient(ellipse 90% 70% at 50% 42%, #241408 0%, #0a0503 72%, #060302 100%);
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+    cursor:pointer;
+    transition:opacity .3s ease, visibility 0s linear .3s;
+  }
+  .result-overlay.show{
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
+    transition:opacity .3s ease;
+  }
+
+  .confetti-layer{
+    position:absolute;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+  }
+  .confetti-piece{
+    position:absolute;
+    top:-8%;
+    border-radius:2px;
+    opacity:.95;
+    animation-name:confetti-fall;
+    animation-timing-function:linear;
+    animation-fill-mode:forwards;
+  }
+  @keyframes confetti-fall{
+    to{ transform:translateY(120vh) rotate(640deg); opacity:.85; }
+  }
+
+  .danger-flash{
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    background:radial-gradient(circle at 50% 46%, rgba(230,30,30,.4), transparent 62%);
+    opacity:0;
+  }
+  .result-overlay.danger .danger-flash{
+    animation:danger-pulse 1.3s ease-in-out infinite;
+  }
+  @keyframes danger-pulse{
+    0%,100%{ opacity:.22; }
+    50%{ opacity:.62; }
+  }
+
+  .result-card{
+    position:relative;
+    z-index:2;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:clamp(6px,1.4vh,14px);
+    max-width:92vw;
+    text-align:center;
+    transform:scale(.4) rotate(-6deg);
+    opacity:0;
+  }
+  .result-overlay.show .result-card{
+    animation:pop-in .6s cubic-bezier(.2,1.5,.4,1) forwards;
+  }
+  @keyframes pop-in{
+    0%{ transform:scale(.35) rotate(-8deg); opacity:0; }
+    55%{ transform:scale(1.14) rotate(2deg); opacity:1; }
+    100%{ transform:scale(1) rotate(0deg); opacity:1; }
+  }
+
+  .snake-roam{
+    display:none;
+    position:absolute;
+    inset:0;
+    z-index:1;
+    overflow:hidden;
+    pointer-events:none;
+  }
+  .result-overlay.danger .snake-roam{ display:block; }
+  #snakeCanvas{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    display:block;
+    filter:drop-shadow(0 0 22px rgba(255,20,20,.45));
+  }
+  .result-overlay.danger .danger-flash{ z-index:0; }
+
+  .result-big{
+    font-family:"Cinzel Decorative","Cinzel", serif;
+    font-weight:900;
+    font-size:clamp(9rem, 26vw, 28rem);
+    line-height:1;
+    margin:0;
+    letter-spacing:.02em;
+    white-space:nowrap;
+    max-width:100%;
+  }
+  .result-big .fit-line{
+    display:inline-block;
+    background:linear-gradient(180deg, var(--brass-1) 0%, var(--brass-2) 55%, var(--brass-3) 100%);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    filter:drop-shadow(0 8px 20px rgba(0,0,0,.75));
+    transform-origin:0 50%;
+  }
+  .result-big.tone-zero .fit-line{
+    background:none;
+    -webkit-text-fill-color:#aebfb2;
+    color:#aebfb2;
+    filter:none;
+  }
+  .result-big.tone-penalty .fit-line{
+    background:none;
+    -webkit-text-fill-color:#d3a8ef;
+    color:#d3a8ef;
+    text-shadow:0 0 30px rgba(180,130,225,.4);
+    filter:drop-shadow(0 8px 16px rgba(0,0,0,.75));
+  }
+  .result-big.tone-pass .fit-line{
+    background:none;
+    -webkit-text-fill-color:#9fc8e4;
+    color:#9fc8e4;
+    text-shadow:0 0 30px rgba(120,180,225,.4);
+    filter:drop-shadow(0 8px 16px rgba(0,0,0,.75));
+  }
+  .result-big.tone-snake .fit-line{
+    background:none;
+    -webkit-text-fill-color:#ff5a4d;
+    color:#ff5a4d;
+    text-shadow:0 0 40px rgba(255,40,30,.75);
+    filter:drop-shadow(0 8px 16px rgba(0,0,0,.8));
+  }
+
+  .result-msg{
+    font-family:"Cinzel", serif;
+    font-weight:600;
+    font-size:clamp(2.6rem, 9vw, 6rem);
+    line-height:1.1;
+    letter-spacing:.015em;
+    margin:0;
+    max-width:100%;
+    white-space:nowrap;
+    color:var(--cream);
+  }
+  .result-msg .fit-line{
+    display:inline-block;
+    text-shadow:0 2px 8px rgba(0,0,0,.7);
+    transform-origin:0 50%;
+  }
+  .result-msg.tone-snake{ color:#ffc2b8; }
+  .result-msg.tone-pass{ color:#cfe3f2; }
+  .result-msg.tone-penalty{ color:#e6d0f7; }
+
+  .result-hint{
+    margin:clamp(4px,1vh,10px) 0 0;
+    font-family:"EB Garamond", serif;
+    font-style:italic;
+    white-space:nowrap;
+    font-size:.9rem;
+    color:var(--cream-dim);
+    opacity:.75;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    #spinBtn{ transition:none; }
+    .bulb{ animation:none; opacity:1; transform:none; }
+    .confetti-piece{ animation:none; opacity:0; }
+    .snake-roam svg{ animation:none; transform:translate(0,0) rotate(0deg) scale(1); }
+    .result-overlay.danger .danger-flash{ animation:none; opacity:.4; }
+    .result-overlay.show .result-card{ animation:none; transform:scale(1) rotate(0); opacity:1; }
+  }
+
+  /* ================= LAYOUT: 40% wheel | 60% game ================= */
+  .stage{
+    position:relative;
+    z-index:1;
+    flex:1 1 auto;
+    min-height:0;
+    width:100%;
+    display:flex;
+    flex-direction:row;
+    align-items:stretch;
+    justify-content:center;
+    gap:clamp(8px,1.2vw,20px);
+  }
+  .wheel-pane{
+    flex:0 0 40%;
+    max-width:40%;
+    min-width:0;
+    min-height:0;
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .game-pane{
+    flex:1 1 60%;
+    min-width:0;
+    min-height:0;
+    position:relative;
+    display:flex;
+    border-radius:14px;
+    padding:clamp(8px,1.3vh,18px) clamp(10px,1.1vw,20px);
+    background:
+      radial-gradient(ellipse 90% 70% at 50% 0%, rgba(96,58,32,.55), transparent 70%),
+      linear-gradient(180deg, rgba(58,33,21,.72), rgba(22,12,6,.88));
+    box-shadow:
+      inset 0 0 0 1px rgba(201,151,74,.55),
+      inset 0 0 0 4px rgba(0,0,0,.5),
+      inset 0 0 70px rgba(0,0,0,.55),
+      0 14px 30px -14px rgba(0,0,0,.85);
+  }
+  .game-pane::before{
+    content:"";
+    position:absolute;
+    inset:clamp(5px,.8vh,11px);
+    border:1px solid rgba(201,151,74,.3);
+    border-radius:9px;
+    pointer-events:none;
+  }
+  .game-pane::after{
+    content:"";
+    position:absolute;
+    inset:clamp(5px,.8vh,11px);
+    pointer-events:none;
+    background-image:
+      radial-gradient(circle at 0 0, rgba(240,212,146,.55) 0 2.5px, transparent 2.6px),
+      radial-gradient(circle at 100% 0, rgba(240,212,146,.55) 0 2.5px, transparent 2.6px),
+      radial-gradient(circle at 0 100%, rgba(240,212,146,.55) 0 2.5px, transparent 2.6px),
+      radial-gradient(circle at 100% 100%, rgba(240,212,146,.55) 0 2.5px, transparent 2.6px);
+  }
+
+  body.mode-home .wheel-pane{ display:none; }
+  body.mode-home .game-pane{ flex:1 1 100%; max-width:100%; }
+
+  .game-screen{
+    display:none;
+    flex-direction:column;
+    width:100%;
+    min-width:0;
+    min-height:0;
+    gap:clamp(5px,.9vh,12px);
+  }
+  .game-screen.is-active{ display:flex; }
+
+  /* ---------- Rules card ---------- */
+  .rules-grid{
+    flex:1 1 auto;
+    min-height:0;
+    display:grid;
+    grid-template-columns:repeat(2, minmax(0,1fr));
+    gap:clamp(9px,1.9vh,26px) clamp(12px,1.8vw,32px);
+    align-content:center;
+    padding:clamp(4px,1vh,16px) clamp(8px,1.8vw,34px);
+    overflow:auto;
+  }
+  .rule-item{
+    display:flex;
+    align-items:flex-start;
+    gap:clamp(10px,1.1vw,20px);
+    padding:clamp(10px,1.8vh,24px) clamp(12px,1.3vw,24px);
+    border-radius:12px;
+    background:linear-gradient(180deg, rgba(96,58,32,.4), rgba(30,17,9,.5));
+    box-shadow:
+      inset 0 0 0 1px rgba(201,151,74,.32),
+      0 6px 14px -8px rgba(0,0,0,.8);
+  }
+  .rule-item.span2{ grid-column:1 / -1; }
+  .rule-no{
+    flex:0 0 auto;
+    width:clamp(30px,4.2vh,56px);
+    height:clamp(30px,4.2vh,56px);
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:"Cinzel Decorative","Cinzel",serif;
+    font-weight:900;
+    font-size:clamp(.9rem,2.2vh,1.55rem);
+    color:#3f2608;
+    background:radial-gradient(circle at 34% 28%, var(--brass-1), var(--brass-2) 55%, var(--brass-3));
+    box-shadow:0 0 0 2px var(--wood-3), inset 0 2px 3px rgba(255,255,255,.5);
+  }
+  .rule-txt{
+    font-family:"EB Garamond",serif;
+    font-size:clamp(.98rem,2.5vh,1.72rem);
+    line-height:1.35;
+    color:#f3e2ba;
+    text-shadow:0 1px 3px rgba(0,0,0,.7);
+  }
+  .rule-txt b{ color:#ffe9b8; font-weight:700; }
+  .rule-txt .snake{ color:#ff8f80; font-weight:700; letter-spacing:.04em; }
+  .rule-txt .pass{ color:#9fc8e4; font-weight:700; letter-spacing:.04em; }
+  .rule-txt .vow{ color:#7fdcb4; font-weight:700; letter-spacing:.06em; }
+
+  .rules-foot{
+    flex:0 0 auto;
+    display:flex;
+    justify-content:center;
+    padding:clamp(4px,1.1vh,14px) 0 clamp(2px,.6vh,8px);
+  }
+  #startBtn{
+    appearance:none;
+    -webkit-appearance:none;
+    border:none;
+    cursor:pointer;
+    padding:clamp(9px,1.8vh,18px) clamp(24px,3.6vw,64px);
+    border-radius:999px;
+    font-family:"Cinzel Decorative","Cinzel",serif;
+    font-weight:900;
+    font-size:clamp(.92rem,2.35vh,1.65rem);
+    letter-spacing:.13em;
+    text-transform:uppercase;
+    color:#3d2407;
+    background:linear-gradient(180deg, #fff0c4 0%, var(--brass-1) 30%, var(--brass-2) 70%, var(--brass-3) 100%);
+    box-shadow:
+      0 0 0 3px var(--wood-3),
+      0 0 0 5px rgba(201,151,74,.55),
+      inset 0 3px 3px rgba(255,255,255,.6),
+      inset 0 -6px 12px rgba(0,0,0,.35),
+      0 12px 26px -12px rgba(0,0,0,.95),
+      0 0 34px rgba(255,206,120,.3);
+    text-shadow:0 1px 0 rgba(255,255,255,.4);
+    transition:transform .14s ease, filter .14s ease;
+  }
+  #startBtn:hover{ transform:translateY(-3px) scale(1.03); filter:brightness(1.1); }
+  #startBtn:active{ transform:translateY(-1px) scale(1); }
+  #startBtn:focus-visible{ outline:3px solid var(--brass-1); outline-offset:5px; }
+
+  #rulesBtn{ flex:0 0 auto; }
+
+  /* ---------- Home board: serial numbers ---------- */
+  .plaque-head{
+    flex:0 0 auto;
+    display:flex;
+    align-items:center;
+    gap:clamp(8px,1vw,16px);
+    padding:clamp(2px,.7vh,10px) clamp(4px,1vw,16px) 0;
+  }
+  .plaque-head h2{
+    margin:0;
+    font-family:"Cinzel Decorative","Cinzel",serif;
+    font-weight:900;
+    font-size:clamp(1.15rem,2.75vw,2.9rem);
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    white-space:nowrap;
+    background:linear-gradient(180deg,#e6fbef 0%, #8fe0b8 38%, #3fae83 78%, #1f7a5a 100%);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    filter:drop-shadow(0 2px 5px rgba(0,0,0,.85)) drop-shadow(0 0 20px rgba(90,225,165,.35));
+  }
+  .plaque-head .rule{ background:linear-gradient(90deg,transparent,#3fae83,transparent); }
+  .plaque-head .rule::after{ color:#3fae83; }
+  .plaque-head .rule{
+    flex:1 1 auto;
+    height:1px;
+    background:linear-gradient(90deg,transparent,var(--brass-2),transparent);
+  }
+  .plaque-head .rule::after{
+    content:"\2726";
+    display:block;
+    text-align:center;
+    margin-top:-.62em;
+    font-size:.62em;
+    color:var(--brass-3);
+  }
+
+  .serial-grid{
+    flex:1 1 auto;
+    min-height:0;
+    display:grid;
+    --gap:clamp(10px,2.1vh,28px);
+    display:flex;
+    flex-wrap:wrap;
+    gap:var(--gap);
+    align-content:center;
+    justify-content:center;
+    width:100%;
+    margin:0 auto;
+    padding:clamp(12px,2.6vh,34px) clamp(14px,2.4vw,46px);
+    overflow:hidden;
+  }
+  .serial-box{
+    appearance:none;
+    -webkit-appearance:none;
+    border:none;
+    cursor:pointer;
+    position:relative;
+    flex:0 0 auto;
+    width:var(--tile, 120px);
+    height:var(--tile, 120px);
+    border-radius:14px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:"Cinzel Decorative","Cinzel",serif;
+    font-weight:900;
+    font-size:var(--numfs, 2.4rem);
+    line-height:1;
+    color:#fff8e8;
+    background:linear-gradient(160deg, var(--c1) 0%, var(--c2) 100%);
+    text-shadow:0 2px 5px rgba(0,0,0,.75), 0 0 14px rgba(0,0,0,.4);
+    box-shadow:
+      0 0 0 2px rgba(0,0,0,.55),
+      0 0 0 4px var(--brass-3),
+      0 0 0 5px rgba(0,0,0,.5),
+      inset 0 3px 0 rgba(255,255,255,.3),
+      inset 0 -12px 22px rgba(0,0,0,.45),
+      0 12px 22px -11px rgba(0,0,0,.9);
+    transition:transform .15s ease, filter .15s ease;
+  }
+  .serial-box:hover{ transform:translateY(-4px) scale(1.05); filter:brightness(1.14); }
+  .serial-box:active{ transform:translateY(-1px) scale(1.01); }
+  .serial-box:focus-visible{ outline:3px solid var(--brass-1); outline-offset:4px; }
+  /* a riddle already taken: the colour drains out and a brass line is drawn
+     corner to corner across the tile */
+  .serial-box.used{
+    filter:saturate(.22) brightness(.5);
+    opacity:.8;
+  }
+  .serial-box.used:hover{ transform:translateY(-2px) scale(1.02); filter:saturate(.3) brightness(.62); }
+  .serial-box.used::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    border-radius:12px;
+    pointer-events:none;
+    --strike:max(3px, calc(var(--tile, 120px) / 52));
+    background:linear-gradient(to bottom right,
+      transparent calc(50% - var(--strike)),
+      rgba(255,236,186,.95) calc(50% - var(--strike)),
+      rgba(255,236,186,.95) calc(50% + var(--strike)),
+      transparent calc(50% + var(--strike)));
+    box-shadow:inset 0 0 22px rgba(0,0,0,.45);
+  }
+
+  /* ---------- Play screen ---------- */
+  .play-top{
+    flex:0 0 auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+  }
+  .antique-btn{
+    appearance:none;
+    -webkit-appearance:none;
+    cursor:pointer;
+    border:none;
+    padding:clamp(4px,.8vh,8px) clamp(9px,1vw,16px);
+    border-radius:999px;
+    font-family:"Cinzel",serif;
+    font-weight:700;
+    font-size:clamp(.6rem,1.42vh,.88rem);
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:#40270a;
+    background:linear-gradient(180deg, var(--brass-1), var(--brass-2) 55%, var(--brass-3));
+    box-shadow:
+      0 0 0 2px var(--wood-3),
+      inset 0 2px 2px rgba(255,255,255,.55),
+      inset 0 -4px 7px rgba(0,0,0,.35),
+      0 6px 12px -6px rgba(0,0,0,.8);
+    transition:transform .12s ease, filter .12s ease;
+  }
+  .antique-btn:hover{ transform:translateY(-2px); filter:brightness(1.08); }
+  .antique-btn:focus-visible{ outline:3px solid var(--brass-1); outline-offset:3px; }
+
+  .q-badge{
+    font-family:"Cinzel Decorative","Cinzel",serif;
+    font-weight:900;
+    font-size:clamp(.85rem,2.05vh,1.5rem);
+    width:2.15em;
+    height:2.15em;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#3f2608;
+    background:radial-gradient(circle at 34% 28%, var(--brass-1), var(--brass-2) 52%, var(--brass-3) 100%);
+    box-shadow:
+      0 0 0 3px var(--wood-3),
+      0 0 0 4px rgba(201,151,74,.5),
+      inset 0 2px 3px rgba(255,255,255,.55),
+      0 6px 14px -7px rgba(0,0,0,.9);
+    text-shadow:0 1px 0 rgba(255,255,255,.35);
+  }
+
+  .phrase-area{
+    --cell:40px;
+    flex:1 1 auto;
+    min-height:0;
+    overflow:hidden;
+    display:flex;
+    flex-wrap:wrap;
+    align-content:center;
+    justify-content:center;
+    gap:calc(var(--cell) * .42) calc(var(--cell) * .62);
+    padding:clamp(3px,.8vh,10px) 2px;
+  }
+  .phrase-area.miss{ animation:miss-shake .4s ease; }
+  @keyframes miss-shake{
+    0%,100%{ transform:translateX(0); }
+    18%{ transform:translateX(-9px); }
+    38%{ transform:translateX(8px); }
+    58%{ transform:translateX(-5px); }
+    78%{ transform:translateX(4px); }
+  }
+  .word{ display:flex; gap:calc(var(--cell) * .16); }
+  .cell{
+    width:var(--cell);
+    height:calc(var(--cell) * 1.24);
+    border-radius:4px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:"Cinzel",serif;
+    font-weight:900;
+    font-size:calc(var(--cell) * .68);
+    line-height:1;
+    color:transparent;
+    background:linear-gradient(180deg,#2d1c10 0%, #150c06 100%);
+    box-shadow:
+      inset 0 0 0 1px rgba(201,151,74,.5),
+      inset 0 3px 9px rgba(0,0,0,.75),
+      0 2px 4px -2px rgba(0,0,0,.8);
+    transition:background .3s ease, box-shadow .3s ease, color .2s ease;
+  }
+  .cell.open{
+    color:#3a1f0b;
+    background:linear-gradient(180deg,#f8ecd0 0%, #dcc08c 100%);
+    text-shadow:0 1px 0 rgba(255,255,255,.7);
+    box-shadow:
+      inset 0 0 0 1px rgba(255,244,212,.9),
+      0 0 0 2px var(--brass-3),
+      0 0 16px rgba(255,214,140,.4),
+      0 6px 12px -7px rgba(0,0,0,.9);
+    animation:flip-open .42s cubic-bezier(.2,1.2,.4,1);
+  }
+  @keyframes flip-open{
+    0%{ transform:rotateX(88deg) scale(.9); }
+    60%{ transform:rotateX(-10deg) scale(1.04); }
+    100%{ transform:rotateX(0) scale(1); }
+  }
+  .phrase-area.solved .cell.open{
+    box-shadow:
+      inset 0 0 0 1px rgba(255,244,212,.9),
+      0 0 0 2px var(--brass-1),
+      0 0 26px rgba(255,214,120,.75),
+      0 6px 12px -7px rgba(0,0,0,.9);
+  }
+
+  .hindi-answer{
+    display:none;
+    flex:0 0 auto;
+    margin:0;
+    text-align:center;
+    white-space:nowrap;
+    overflow:hidden;
+    font-family:"Noto Serif Devanagari","Nirmala UI","Mangal",serif;
+    font-weight:800;
+    font-size:clamp(1.7rem,6.1vh,4.4rem);
+    line-height:1.5;
+    padding:clamp(2px,.6vh,8px) clamp(6px,1.2vw,18px);
+  }
+  .hindi-answer.show{ display:block; }
+
+  /* solved: the alphabet shrinks away so the Hindi and English answers can be
+     read from the back of the hall */
+  #playScreen.solved .ltr.cons{
+    width:clamp(18px,2.1vw,35px);
+    height:clamp(21px,2.7vh,39px);
+    border-radius:5px;
+    font-size:clamp(.62rem,1.5vh,1.02rem);
+  }
+  #playScreen.solved .ltr.vowel{
+    width:clamp(22px,2.5vw,41px);
+    height:clamp(22px,2.5vw,41px);
+    font-size:clamp(.68rem,1.65vh,1.14rem);
+  }
+  #playScreen.solved .letter-row{ gap:clamp(3px,.42vw,7px); }
+  #playScreen.solved .hindi-answer{ font-size:clamp(2rem,7.6vh,5.4rem); }
+  #playScreen.solved .meaning-scroll{
+    font-size:clamp(1.45rem,4.15vh,2.9rem);
+    padding:clamp(6px,1.3vh,16px) clamp(8px,1.4vw,22px);
+  }
+  .ltr, .letter-row, .hindi-answer, .meaning-scroll{
+    transition:width .4s ease, height .4s ease, font-size .4s ease, gap .4s ease,
+               opacity .55s ease, transform .55s ease;
+  }
+  .hindi-answer .fit-hi{
+    display:inline-block;
+    transform-origin:50% 50%;
+    background:linear-gradient(180deg, #fff3d0 0%, var(--brass-1) 42%, var(--brass-2) 100%);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    filter:drop-shadow(0 3px 7px rgba(0,0,0,.8)) drop-shadow(0 0 22px rgba(255,205,110,.45));
+    animation:hindi-in .7s cubic-bezier(.2,1.3,.4,1);
+  }
+  @keyframes hindi-in{
+    0%{ opacity:0; transform:scale(.6); }
+    60%{ opacity:1; transform:scale(1.08); }
+    100%{ opacity:1; transform:scale(1); }
+  }
+
+  .meaning-scroll{
+    flex:0 0 auto;
+    text-align:center;
+    font-family:"EB Garamond",serif;
+    font-style:italic;
+    font-weight:600;
+    font-size:clamp(1.14rem,3.18vh,2.22rem);
+    line-height:1.3;
+    letter-spacing:.005em;
+    color:#f8e7be;
+    text-shadow:0 2px 5px rgba(0,0,0,.75);
+    padding:clamp(4px,1vh,12px) clamp(8px,1.4vw,22px);
+    border-top:1px solid rgba(201,151,74,.28);
+    border-bottom:1px solid rgba(201,151,74,.28);
+    background:linear-gradient(90deg,transparent,rgba(201,151,74,.1),transparent);
+    opacity:0;
+    transform:translateY(5px);
+    transition:opacity .55s ease, transform .55s ease;
+    min-height:1.6em;
+  }
+  .meaning-scroll.show{ opacity:1; transform:none; }
+
+  .letters{
+    flex:0 0 auto;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:clamp(4px,.85vh,10px);
+  }
+  .letter-row{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:clamp(4px,.6vw,11px);
+  }
+  .ltr{
+    appearance:none;
+    -webkit-appearance:none;
+    border:none;
+    cursor:pointer;
+    position:relative;
+    font-family:"Cinzel",serif;
+    font-weight:900;
+    line-height:1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition:transform .12s ease, opacity .35s ease, filter .35s ease;
+  }
+  .ltr:focus-visible{ outline:3px solid var(--brass-1); outline-offset:2px; }
+  .ltr.cons{
+    width:clamp(32px,3.97vw,67px);
+    height:clamp(38px,5.12vh,74px);
+    border-radius:8px;
+    font-size:clamp(1.13rem,2.82vh,1.96rem);
+    color:#f8e6bd;
+    background:linear-gradient(180deg,#5c3620 0%, #30190d 100%);
+    box-shadow:
+      inset 0 0 0 1px rgba(201,151,74,.6),
+      inset 0 2px 2px rgba(255,220,160,.18),
+      inset 0 -4px 7px rgba(0,0,0,.55),
+      0 4px 8px -4px rgba(0,0,0,.85);
+    text-shadow:0 1px 3px rgba(0,0,0,.85);
+  }
+  .ltr.cons:hover:not(.used){ transform:translateY(-3px); filter:brightness(1.2); }
+  .ltr.vowel{
+    width:clamp(40px,4.66vw,78px);
+    height:clamp(40px,4.66vw,78px);
+    border-radius:50%;
+    font-size:clamp(1.24rem,3.1vh,2.19rem);
+    color:#fff3d2;
+    background:radial-gradient(circle at 34% 28%, #3d7d63 0%, #1d4c3a 55%, #0d2b20 100%);
+    box-shadow:
+      0 0 0 2px var(--brass-2),
+      0 0 0 4px rgba(0,0,0,.55),
+      inset 0 2px 3px rgba(255,255,255,.28),
+      inset 0 -5px 9px rgba(0,0,0,.5),
+      0 5px 11px -5px rgba(0,0,0,.9);
+    text-shadow:0 1px 3px rgba(0,0,0,.8);
+  }
+  .ltr.vowel:hover:not(.used){ transform:translateY(-3px) scale(1.07); filter:brightness(1.18); }
+  .ltr.used{
+    opacity:.2;
+    filter:grayscale(.85);
+    cursor:default;
+    transform:none !important;
+  }
+  .ltr.used::after{
+    content:"";
+    position:absolute;
+    left:12%;
+    right:12%;
+    top:48%;
+    height:2px;
+    background:rgba(255,120,90,.85);
+    transform:rotate(-24deg);
+    border-radius:2px;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .cell.open{ animation:none; }
+    .phrase-area.miss{ animation:none; }
+    .hindi-answer .fit-hi{ animation:none; }
+    .event-heading .fit-line{ animation:none; }
+  }
+
+  /* stack on narrow screens */
+  @media (max-width: 900px){
+    body{ overflow:auto; }
+    .stage{ flex-direction:column; align-items:center; }
+    .wheel-pane{ flex:0 0 auto; max-width:100%; width:100%; }
+    .game-pane{ flex:1 1 auto; width:100%; min-height:70vh; }
+    .cabinet{ width:min(88vw, 58vh); }
+  }
+
+</style>
+</head>
+<body>
+<div class="gate" id="gate">
+  <div class="gate-card" id="gateCard">
+    <div class="gate-key" aria-hidden="true">&#128273;</div>
+    <h2>Shree Balaji Rajasthani Mandal</h2>
+    <p>Enter the password to open the wheel</p>
+    <div class="gate-row">
+      <input id="gateInput" type="password" autocomplete="off" autocapitalize="off"
+             spellcheck="false" aria-label="Password" placeholder="&#183;&#183;&#183;&#183;&#183;&#183;">
+      <button class="antique-btn" id="gateBtn" type="button">Enter</button>
+    </div>
+    <p class="gate-err" id="gateErr">Wrong password &mdash; try again</p>
+  </div>
+</div>
+
+<button id="soundBtn" type="button" aria-pressed="false" aria-label="Mute sound" title="Mute sound">&#9835;</button>
+
+<header>
+  <div class="brand-logo" role="img" aria-label="Sri Balaji Rajasthani Mandal, Ameerpet">
+    <svg viewBox="-16 -16 336 426" xmlns="http://www.w3.org/2000/svg">
+      <rect x="-16" y="-16" width="336" height="426" rx="18" fill="#fffdf7"/>
+      <defs>
+        <linearGradient id="mandalRed" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#f0464a"/>
+          <stop offset="45%" stop-color="#e12b30"/>
+          <stop offset="100%" stop-color="#c2161c"/>
+        </linearGradient>
+        <linearGradient id="mandalFlame" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#ef4145"/>
+          <stop offset="100%" stop-color="#cf1a20"/>
+        </linearGradient>
+      </defs>
+
+      <path d="M54,20 Q152,4 250,20 Q272,25 274,50 L292,290 Q294,312 270,312 L34,312 Q10,312 12,290 L30,50 Q32,25 54,20 Z" fill="url(#mandalRed)"/>
+      <path d="M74,44 Q152,31 230,44 L240,238 L64,238 Z" fill="#ffffff"/>
+      <path d="M152,56 C161,116 170,156 165,196 C163,217 158,228 152,228 C146,228 141,217 139,196 C134,156 143,116 152,56 Z" fill="url(#mandalFlame)"/>
+      <text x="152" y="284" text-anchor="middle" fill="#ffffff"
+            font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="42">Sri Balaji</text>
+
+      <text x="152" y="352" text-anchor="middle" fill="#2b3990"
+            font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="38">Rajasthani Mandal</text>
+
+      <rect x="12" y="366" width="280" height="22" rx="3" fill="#2b3990"/>
+      <text x="155" y="382" text-anchor="middle" fill="#ffffff"
+            font-family="Georgia, 'Times New Roman', serif" font-size="15" letter-spacing="5">ameerpet</text>
+    </svg>
+  </div>
+  <div class="head-text">
+    <h1 class="event-heading"><span class="fit-line" id="eventHeading">Shree Balaji Rajasthani Mandal &middot; Ganesh Utsav 2026</span></h1>
+    <p class="sub-heading"><span class="fit-line" id="subHeading">Guess or Mess - THE SERPENT WHEEL&hellip;</span></p>
+  </div>
+</header>
+
+<div class="stage">
+  <div class="wheel-pane">
+  <div class="cabinet" id="cabinet">
+    <div class="studs" id="studs"></div>
+
+    <div class="wheel-well">
+      <canvas id="wheelCanvas" width="900" height="900" aria-hidden="true"></canvas>
+    </div>
+
+    <div class="pointer" aria-hidden="true">
+      <div class="pointer-hinge"></div>
+      <div class="pointer-tip"></div>
+    </div>
+
+    <div class="hub-wrap">
+      <button id="spinBtn" type="button" aria-label="Spin the wheel">SPIN</button>
+    </div>
+  </div>
+  </div>
+
+  <section class="game-pane" id="gamePane">
+
+    <!-- ===== RULES ===== -->
+    <div class="game-screen is-active" id="rulesScreen">
+      <div class="plaque-head">
+        <span class="rule"></span>
+        <h2>Rules of Play</h2>
+        <span class="rule"></span>
+      </div>
+
+      <div class="rules-grid">
+        <div class="rule-item"><div class="rule-no">1</div><div class="rule-txt">
+          Each team <b>selects a question number</b> from the board.</div></div>
+
+        <div class="rule-item"><div class="rule-no">2</div><div class="rule-txt">
+          The team <b>guesses an alphabet</b> based on their judgement.</div></div>
+
+        <div class="rule-item"><div class="rule-no">3</div><div class="rule-txt">
+          Once an alphabet is selected, <b>every box holding that alphabet opens</b> at once.
+          <b>5 wrong chances</b> are allowed per team.</div></div>
+
+        <div class="rule-item"><div class="rule-no">4</div><div class="rule-txt">
+          Vowels &mdash; <span class="vow">A E I O U</span> &mdash; may be opted only on payment of a
+          <b>premium price of 200 points</b>.</div></div>
+
+        <div class="rule-item"><div class="rule-no">5</div><div class="rule-txt">
+          If the alphabet guessed is <b>correct</b>, the team gets to <b>spin the wheel</b>
+          and earns points accordingly.</div></div>
+
+        <div class="rule-item"><div class="rule-no">6</div><div class="rule-txt">
+          On the wheel the point system is straightforward, but &mdash;
+          <span class="snake">SNAKE</span> nullifies the team's <b>entire score</b>;
+          <span class="pass">PASS</span> hands the question, in its present state, to the
+          <b>immediate next team</b>.</div></div>
+
+        <div class="rule-item span2"><div class="rule-no">7</div><div class="rule-txt">
+          At any point, a team that does not wish to play further may
+          <b>choose to discontinue</b> and <b>secure the points</b> earned up to that stage.</div></div>
+      </div>
+
+      <div class="rules-foot">
+        <button id="startBtn" type="button">Start the Game &#9656;</button>
+      </div>
+    </div>
+
+    <!-- ===== HOME BOARD ===== -->
+    <div class="game-screen" id="homeScreen">
+      <div class="plaque-head">
+        <span class="rule"></span>
+        <h2>Muhavare &middot; Choose a Riddle</h2>
+        <span class="rule"></span>
+        <button class="antique-btn" id="rulesBtn" type="button">Rules</button>
+      </div>
+      <div class="serial-grid" id="serialGrid"></div>
+    </div>
+
+    <!-- ===== PLAY SCREEN ===== -->
+    <div class="game-screen" id="playScreen">
+      <div class="play-top">
+        <button class="antique-btn" id="backBtn" type="button">&#8592; Board</button>
+        <div class="q-badge" id="qBadge" aria-label="Question number">1</div>
+        <button class="antique-btn" id="revealBtn" type="button">Reveal</button>
+      </div>
+
+      <div class="phrase-area" id="phraseArea" aria-live="polite"></div>
+
+      <p class="hindi-answer" id="hindiAnswer"><span class="fit-hi" id="hindiText"></span></p>
+
+      <p class="meaning-scroll" id="meaningScroll"><span id="meaningText"></span></p>
+
+      <div class="letters">
+        <div class="letter-row cons-row" id="consRow"></div>
+        <div class="letter-row cons-row" id="consRow2"></div>
+        <div class="letter-row vowel-row" id="vowelRow"></div>
+      </div>
+    </div>
+
+  </section>
+
+
+</div>
+
+<div class="result-overlay" id="resultOverlay" role="dialog" aria-modal="true" aria-label="Spin result">
+  <div class="confetti-layer" id="confettiLayer" aria-hidden="true"></div>
+  <div class="danger-flash" aria-hidden="true"></div>
+  <div class="snake-roam" id="snakeRoam" aria-hidden="true">
+    <canvas id="snakeCanvas"></canvas>
+  </div>
+  <div class="result-card" role="status" aria-live="assertive">
+    <p class="result-big"><span class="fit-line" id="overlayBig"></span></p>
+    <p class="result-msg"><span class="fit-line" id="overlayMsg"></span></p>
+    <p class="result-hint">Tap anywhere to spin again</p>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  // ---- Segment layout: 36 equal wedges ----
+  // Five each of +100, +200, +300, +400 and 0; three each of SNAKE, PASS and
+  // -100; two +500 jackpots. The jackpots sit exactly opposite each other, the
+  // -100 penalties are spaced evenly a third of the wheel apart, and everything
+  // else is freshly jumbled on every load with no label repeating inside any run
+  // of five wedges, checked right around the rim.
+  var TOTAL_SEGMENTS = 36;
+  var JACKPOT_GAP = 18;     // exactly 180 degrees apart
+  var PENALTY_STEP = 12;    // three wedges, 120 degrees apart
+
+  function shuffleArr(arr){
+    for(var i=arr.length-1;i>0;i--){
+      var j = Math.floor(Math.random()*(i+1));
+      var t = arr[i]; arr[i] = arr[j]; arr[j] = t;
+    }
+    return arr;
+  }
+
+  // drop three of a label onto an evenly spaced spoke (120 degrees apart) that
+  // no other fixed wedge is already using
+  function placeEvenTriple(slots, label){
+    for(var tries=0; tries<TOTAL_SEGMENTS*2; tries++){
+      var cand = Math.floor(Math.random()*TOTAL_SEGMENTS);
+      var clash = false;
+      for(var q=0;q<3;q++){
+        if(slots[(cand + q*PENALTY_STEP) % TOTAL_SEGMENTS]){ clash = true; break; }
+      }
+      if(clash) continue;
+      for(var q2=0;q2<3;q2++){
+        slots[(cand + q2*PENALTY_STEP) % TOTAL_SEGMENTS] = label;
+      }
+      return true;
+    }
+    return false;
+  }
+
+  function buildJumbledOrder(){
+    var POOL = {"100":5, "200":5, "300":5, "400":5, "0":5, "PASS":3};
+    var LABELS = [];
+    for(var key in POOL){ if(POOL.hasOwnProperty(key)) LABELS.push(key); }
+
+    var lastGood = null;
+
+    for(var attempt=0; attempt<400; attempt++){
+      var counts = {};
+      for(var li=0; li<LABELS.length; li++) counts[LABELS[li]] = POOL[LABELS[li]];
+
+      var slots = new Array(TOTAL_SEGMENTS);
+      var anchor = Math.floor(Math.random()*TOTAL_SEGMENTS);
+      slots[anchor] = "500";
+      slots[(anchor + JACKPOT_GAP) % TOTAL_SEGMENTS] = "500";
+
+      // the penalties and the snakes each take their own evenly spaced spoke
+      if(!placeEvenTriple(slots, "-100")) continue;
+      if(!placeEvenTriple(slots, "SNAKE")) continue;
+
+      var failed = false;
+      for(var i=0;i<TOTAL_SEGMENTS;i++){
+        if(slots[i]) continue;
+        var recent = [];
+        for(var b=1;b<=4;b++){
+          var back = slots[(i - b + TOTAL_SEGMENTS) % TOTAL_SEGMENTS];
+          if(back) recent.push(back);
+        }
+        var candidates = LABELS.filter(function(l){
+          return counts[l] > 0 && recent.indexOf(l) === -1;
+        });
+        if(candidates.length === 0){ failed = true; break; }
+        shuffleArr(candidates);
+        slots[i] = candidates[0];
+        counts[candidates[0]]--;
+      }
+      if(failed) continue;
+      lastGood = slots;
+
+      // every run of five around the whole rim must hold five different labels
+      var ok = true;
+      for(var s=0; s<TOTAL_SEGMENTS && ok; s++){
+        var seen = {};
+        for(var w=0; w<5; w++){
+          var v = slots[(s + w) % TOTAL_SEGMENTS];
+          if(seen[v]){ ok = false; break; }
+          seen[v] = true;
+        }
+      }
+      if(ok) return slots;
+    }
+    return lastGood || ["500"];
+  }
+
+  var ORDER = buildJumbledOrder();
+
+  var COLORS = {
+    burgundyA:["#8a2a3c","#5c1521"],
+    burgundyB:["#6b3a1f","#3f2110"],
+    zero:["#256349","#123526"],
+    snake:["#251b2e","#120c17"],
+    jackpot:["#e0ad33","#7c5410"],
+    pass:["#2f5570","#12283a"],
+    penalty:["#4f2a68","#1d0f28"]
+  };
+
+  var N = ORDER.length;
+  var segAngle = (Math.PI * 2) / N;
+
+  function typeOf(label){
+    if(label === "0") return "zero";
+    if(label === "SNAKE") return "snake";
+    if(label === "PASS") return "pass";
+    if(label === "500") return "jackpot";
+    if(label === "-100") return "penalty";
+    return "number";
+  }
+
+  function displayLabel(label){
+    if(label === "0") return "0";
+    if(label === "SNAKE") return "SNAKE";
+    if(label === "PASS") return "PASS";
+    if(label === "-100") return "-100";
+    return "+" + label;
+  }
+
+  // ---- Draw the wheel face ----
+  var canvas = document.getElementById("wheelCanvas");
+  var ctx = canvas.getContext("2d");
+  var size = canvas.width;
+  var cx = size/2, cy = size/2;
+  var rOuter = size/2 - 6;
+  var rInner = size * 0.16;
+
+  // the radial band a label is allowed to occupy, inset from the rim and the hub
+  var BAND_OUTER = rOuter * 0.935;
+  var BAND_INNER = rInner * 1.35;
+
+  // Shrink a wedge label until it fits both ways: short enough to sit inside the
+  // band, and shallow enough that its cap height clears the gold dividers at the
+  // narrow (inner) end of the text.
+  function fitWedgeFont(txt, startFs){
+    var fs = startFs;
+    var bandLen = BAND_OUTER - BAND_INNER;
+    for(var pass=0; pass<10; pass++){
+      ctx.font = "900 " + fs + "px Cinzel, serif";
+      var w = ctx.measureText(txt).width;
+      if(w > bandLen){ fs *= (bandLen/w) * 0.97; continue; }
+      var innerEdge = BAND_OUTER - w;
+      var arcAtInner = (2*Math.PI*innerEdge)/N;   // wedge width where the text is narrowest
+      var allowed = arcAtInner * 0.62;            // leave clear air either side
+      if(fs > allowed){ fs = allowed * 0.97; continue; }
+      break;
+    }
+    return Math.max(8, fs);
+  }
+
+  function drawWheel(){
+    ctx.clearRect(0,0,size,size);
+
+    for(var i=0;i<N;i++){
+      var start = -Math.PI/2 + i*segAngle;
+      var end = start + segAngle;
+      var label = ORDER[i];
+      var type = typeOf(label);
+
+      var pair;
+      if(type === "zero") pair = COLORS.zero;
+      else if(type === "snake") pair = COLORS.snake;
+      else if(type === "jackpot") pair = COLORS.jackpot;
+      else if(type === "pass") pair = COLORS.pass;
+      else if(type === "penalty") pair = COLORS.penalty;
+      else pair = (i % 2 === 0) ? COLORS.burgundyA : COLORS.burgundyB;
+
+      var grad = ctx.createRadialGradient(cx,cy, rInner*0.6, cx,cy, rOuter);
+      grad.addColorStop(0, pair[0]);
+      grad.addColorStop(1, pair[1]);
+
+      ctx.beginPath();
+      ctx.moveTo(cx,cy);
+      ctx.arc(cx,cy,rOuter,start,end);
+      ctx.closePath();
+      ctx.fillStyle = grad;
+      ctx.fill();
+
+      // gold divider
+      ctx.strokeStyle = "rgba(240,212,146,.85)";
+      ctx.lineWidth = size*0.0032;
+      ctx.beginPath();
+      ctx.moveTo(cx,cy);
+      ctx.lineTo(cx + Math.cos(start)*rOuter, cy + Math.sin(start)*rOuter);
+      ctx.stroke();
+
+      // subtle rim highlight along outer edge of wedge
+      ctx.strokeStyle = "rgba(255,255,255,.10)";
+      ctx.lineWidth = size*0.012;
+      ctx.beginPath();
+      ctx.arc(cx,cy, rOuter - size*0.01, start, end);
+      ctx.stroke();
+
+      // label — right-aligned to the rim, and sized so it can never touch the
+      // gold dividers on either side or run past the band it sits in
+      var mid = start + segAngle/2;
+      ctx.save();
+      ctx.translate(cx,cy);
+      ctx.rotate(mid);
+      ctx.textAlign = "right";
+      ctx.textBaseline = "middle";
+
+      var txt = type === "snake" ? "SNAKE" : displayLabel(label);
+      var fs = fitWedgeFont(txt, size*(type === "jackpot" ? 0.05 : 0.046));
+      ctx.font = "900 " + fs + "px Cinzel, serif";
+      ctx.fillStyle = type === "pass" ? "#e3f0fa"
+                    : type === "penalty" ? "#f0dcff"
+                    : type === "snake" ? "#f5e2b4"
+                    : "#fff6e2";
+      ctx.shadowColor = "rgba(0,0,0,.65)";
+      ctx.shadowBlur = size*0.007;
+      ctx.fillText(txt, BAND_OUTER, 0);
+      ctx.shadowBlur = 0;
+
+      if(type === "snake"){
+        ctx.textAlign = "center";
+        ctx.font = (size*0.05) + "px serif";
+        ctx.fillText("🐍", rOuter*0.46, 0);
+      }
+      ctx.restore();
+    }
+
+    // outer gold ring
+    ctx.beginPath();
+    ctx.arc(cx,cy,rOuter,0,Math.PI*2);
+    ctx.lineWidth = size*0.014;
+    ctx.strokeStyle = "#c9974a";
+    ctx.stroke();
+
+    // center hub cap on the canvas itself (under the real button)
+    var hubGrad = ctx.createRadialGradient(cx-size*0.03,cy-size*0.04, size*0.01, cx,cy, rInner);
+    hubGrad.addColorStop(0,"#f0d492");
+    hubGrad.addColorStop(0.5,"#c9974a");
+    hubGrad.addColorStop(1,"#7a5518");
+    ctx.beginPath();
+    ctx.arc(cx,cy,rInner,0,Math.PI*2);
+    ctx.fillStyle = hubGrad;
+    ctx.fill();
+    ctx.lineWidth = size*0.008;
+    ctx.strokeStyle = "#3d2a0e";
+    ctx.stroke();
+  }
+  drawWheel();
+
+  // ---- Neon bulbs ringing the wooden rim, lit in a three-phase chase ----
+  var studsHost = document.getElementById("studs");
+  var BULB_COUNT = 72;
+  var bulbRadiusPct = 45; // % of cabinet radius: the wood rim between edge and wheel-well
+  for(var s=0; s<BULB_COUNT; s++){
+    var aRad = (Math.PI*2/BULB_COUNT)*s - Math.PI/2;
+    var xPct = 50 + bulbRadiusPct*Math.cos(aRad);
+    var yPct = 50 + bulbRadiusPct*Math.sin(aRad);
+    var d = document.createElement("div");
+    d.className = "bulb";
+    d.style.left = xPct + "%";
+    d.style.top = yPct + "%";
+    d.style.animationDelay = (-(s % 3) * 0.3) + "s";
+    studsHost.appendChild(d);
+  }
+
+  // ---- Procedural viper, rendered on canvas ----
+  // A chain of vertebrae follows the head along a wandering path, with a
+  // travelling sine laid over it, so the body genuinely slithers rather than
+  // sliding as one rigid picture.
+  var snakeCanvas = document.getElementById("snakeCanvas");
+  var snakeCtx = snakeCanvas ? snakeCanvas.getContext("2d") : null;
+  var snakeRAF = null;
+  var snakeTime = 0;
+  var snakeLast = 0;
+  var snakePts = null;
+  var SNAKE_SEGS = 84;
+
+  function snakeResize(){
+    if(!snakeCtx) return;
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var w = snakeCanvas.clientWidth || window.innerWidth;
+    var h = snakeCanvas.clientHeight || window.innerHeight;
+    snakeCanvas.width = Math.max(1, Math.round(w*dpr));
+    snakeCanvas.height = Math.max(1, Math.round(h*dpr));
+    snakeCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+
+  function snakeHeadAt(t, w, h){
+    return {
+      x: w/2 + (w*0.42)*Math.sin(t*0.98) + (w*0.05)*Math.sin(t*2.6),
+      y: h/2 + (h*0.34)*Math.sin(t*1.47 + 1.2) + (h*0.04)*Math.cos(t*3.1)
+    };
+  }
+
+  function snakeDraw(){
+    if(!snakeCtx) return;
+    var w = snakeCanvas.clientWidth, h = snakeCanvas.clientHeight;
+    if(!w || !h) return;
+    var min = Math.min(w,h);
+    var segLen = Math.max(4, min*0.013);
+    var maxW = Math.max(6, min*0.027);
+
+    var head = snakeHeadAt(snakeTime, w, h);
+    if(!snakePts){
+      snakePts = [];
+      for(var s=0;s<SNAKE_SEGS;s++) snakePts.push({x:head.x, y:head.y});
+    }
+    snakePts[0].x = head.x; snakePts[0].y = head.y;
+    for(var i=1;i<SNAKE_SEGS;i++){
+      var dx = snakePts[i].x - snakePts[i-1].x;
+      var dy = snakePts[i].y - snakePts[i-1].y;
+      var d = Math.sqrt(dx*dx + dy*dy) || 0.0001;
+      var r = segLen/d;
+      snakePts[i].x = snakePts[i-1].x + dx*r;
+      snakePts[i].y = snakePts[i-1].y + dy*r;
+    }
+
+    // vertebrae with a travelling undulation laid across the chain
+    var spine = [];
+    for(var j=0;j<SNAKE_SEGS;j++){
+      var p = snakePts[j];
+      var nx, ny;
+      if(j < SNAKE_SEGS-1){ nx = snakePts[j+1].x - p.x; ny = snakePts[j+1].y - p.y; }
+      else { nx = p.x - snakePts[j-1].x; ny = p.y - snakePts[j-1].y; }
+      var nl = Math.sqrt(nx*nx+ny*ny) || 1;
+      var tx = nx/nl, ty = ny/nl;
+      var wave = Math.sin(j*0.42 - snakeTime*7.2) * segLen * 0.5 * Math.min(1, j/6);
+      var u = j/(SNAKE_SEGS-1);
+      var bw = maxW * (1 - 0.88*Math.pow(u, 1.5)) * (u < 0.09 ? (0.72 + u*3.1) : 1);
+      spine.push({
+        x: p.x + (-ty)*wave,
+        y: p.y + (tx)*wave,
+        tx: tx, ty: ty,
+        w: Math.max(1, bw)
+      });
+    }
+
+    snakeCtx.clearRect(0,0,w,h);
+
+    // body outline
+    snakeCtx.beginPath();
+    for(var a=0;a<spine.length;a++){
+      var sp = spine[a];
+      var px = sp.x + (-sp.ty)*sp.w, py = sp.y + (sp.tx)*sp.w;
+      if(a===0) snakeCtx.moveTo(px,py); else snakeCtx.lineTo(px,py);
+    }
+    for(var b=spine.length-1;b>=0;b--){
+      var sq = spine[b];
+      snakeCtx.lineTo(sq.x - (-sq.ty)*sq.w, sq.y - (sq.tx)*sq.w);
+    }
+    snakeCtx.closePath();
+
+    var grad = snakeCtx.createLinearGradient(0, 0, 0, h);
+    grad.addColorStop(0, "#4a5334");
+    grad.addColorStop(0.5, "#333b22");
+    grad.addColorStop(1, "#1b2012");
+    snakeCtx.fillStyle = grad;
+    snakeCtx.fill();
+    snakeCtx.strokeStyle = "rgba(10,12,7,.9)";
+    snakeCtx.lineWidth = Math.max(1, min*0.0022);
+    snakeCtx.stroke();
+
+    snakeCtx.save();
+    snakeCtx.clip();
+
+    // dorsal diamond markings
+    for(var m=3;m<spine.length-3;m+=5){
+      var sm = spine[m];
+      var ang = Math.atan2(sm.ty, sm.tx);
+      snakeCtx.save();
+      snakeCtx.translate(sm.x, sm.y);
+      snakeCtx.rotate(ang);
+      snakeCtx.beginPath();
+      snakeCtx.moveTo(-sm.w*1.0, 0);
+      snakeCtx.lineTo(0, -sm.w*0.78);
+      snakeCtx.lineTo(sm.w*1.0, 0);
+      snakeCtx.lineTo(0, sm.w*0.78);
+      snakeCtx.closePath();
+      snakeCtx.fillStyle = "rgba(12,14,8,.85)";
+      snakeCtx.fill();
+      snakeCtx.strokeStyle = "rgba(190,178,132,.45)";
+      snakeCtx.lineWidth = Math.max(0.6, min*0.0016);
+      snakeCtx.stroke();
+      snakeCtx.restore();
+    }
+
+    // scale rows and a specular sheen down one flank
+    snakeCtx.strokeStyle = "rgba(0,0,0,.22)";
+    snakeCtx.lineWidth = Math.max(0.5, min*0.0012);
+    for(var k=1;k<spine.length-1;k+=2){
+      var sk = spine[k];
+      snakeCtx.beginPath();
+      snakeCtx.arc(sk.x, sk.y, sk.w*0.92, Math.atan2(sk.ty,sk.tx) - 1.25, Math.atan2(sk.ty,sk.tx) + 1.25);
+      snakeCtx.stroke();
+    }
+    snakeCtx.beginPath();
+    for(var g=0;g<spine.length;g++){
+      var sg = spine[g];
+      var gx = sg.x + (-sg.ty)*sg.w*0.55, gy = sg.y + (sg.tx)*sg.w*0.55;
+      if(g===0) snakeCtx.moveTo(gx,gy); else snakeCtx.lineTo(gx,gy);
+    }
+    snakeCtx.strokeStyle = "rgba(205,196,150,.18)";
+    snakeCtx.lineWidth = Math.max(1, min*0.004);
+    snakeCtx.stroke();
+    snakeCtx.restore();
+
+    // ---- head ----
+    var hd = spine[0];
+    var hAng = Math.atan2(hd.ty, hd.tx) + Math.PI; // face the direction of travel
+    var hl = maxW*2.4, hw = maxW*1.15;
+    snakeCtx.save();
+    snakeCtx.translate(hd.x, hd.y);
+    snakeCtx.rotate(hAng);
+
+    // tongue, flicking
+    var flick = (snakeTime*2.6) % 1.9;
+    if(flick < 0.62){
+      var ext = hl*(0.28 + 0.42*Math.sin(Math.min(1, flick/0.62)*Math.PI));
+      snakeCtx.beginPath();
+      snakeCtx.moveTo(hl*0.95, 0);
+      snakeCtx.lineTo(hl*0.95 + ext*0.62, 0);
+      snakeCtx.moveTo(hl*0.95 + ext*0.62, 0);
+      snakeCtx.lineTo(hl*0.95 + ext, -ext*0.38);
+      snakeCtx.moveTo(hl*0.95 + ext*0.62, 0);
+      snakeCtx.lineTo(hl*0.95 + ext, ext*0.38);
+      snakeCtx.strokeStyle = "#d8342c";
+      snakeCtx.lineWidth = Math.max(1.4, maxW*0.16);
+      snakeCtx.lineCap = "round";
+      snakeCtx.stroke();
+    }
+
+    // wedge-shaped viper skull
+    snakeCtx.beginPath();
+    snakeCtx.moveTo(hl*0.95, 0);
+    snakeCtx.quadraticCurveTo(hl*0.55, -hw*0.85, -hl*0.05, -hw);
+    snakeCtx.quadraticCurveTo(-hl*0.62, -hw*0.78, -hl*0.8, 0);
+    snakeCtx.quadraticCurveTo(-hl*0.62, hw*0.78, -hl*0.05, hw);
+    snakeCtx.quadraticCurveTo(hl*0.55, hw*0.85, hl*0.95, 0);
+    snakeCtx.closePath();
+    var hg = snakeCtx.createLinearGradient(0, -hw, 0, hw);
+    hg.addColorStop(0, "#59603c");
+    hg.addColorStop(0.45, "#3a4124");
+    hg.addColorStop(1, "#191d10");
+    snakeCtx.fillStyle = hg;
+    snakeCtx.fill();
+    snakeCtx.strokeStyle = "rgba(8,9,5,.95)";
+    snakeCtx.lineWidth = Math.max(1, maxW*0.1);
+    snakeCtx.stroke();
+
+    // brow ridges
+    snakeCtx.beginPath();
+    snakeCtx.moveTo(-hl*0.1, -hw*0.92);
+    snakeCtx.quadraticCurveTo(hl*0.3, -hw*0.7, hl*0.62, -hw*0.2);
+    snakeCtx.moveTo(-hl*0.1, hw*0.92);
+    snakeCtx.quadraticCurveTo(hl*0.3, hw*0.7, hl*0.62, hw*0.2);
+    snakeCtx.strokeStyle = "rgba(12,14,8,.7)";
+    snakeCtx.lineWidth = Math.max(0.8, maxW*0.08);
+    snakeCtx.stroke();
+
+    // eyes: amber iris, vertical slit, glint
+    [-1, 1].forEach(function(side){
+      var ex = hl*0.24, ey = side*hw*0.56, er = maxW*0.34;
+      snakeCtx.beginPath();
+      snakeCtx.ellipse(ex, ey, er, er*0.86, 0, 0, Math.PI*2);
+      var eg = snakeCtx.createRadialGradient(ex-er*0.3, ey-er*0.3, er*0.15, ex, ey, er);
+      eg.addColorStop(0, "#ffd979");
+      eg.addColorStop(0.6, "#e39b1f");
+      eg.addColorStop(1, "#8a4f08");
+      snakeCtx.fillStyle = eg;
+      snakeCtx.fill();
+      snakeCtx.strokeStyle = "rgba(8,9,5,.9)";
+      snakeCtx.lineWidth = Math.max(0.7, maxW*0.07);
+      snakeCtx.stroke();
+      snakeCtx.beginPath();
+      snakeCtx.ellipse(ex, ey, er*0.22, er*0.8, 0, 0, Math.PI*2);
+      snakeCtx.fillStyle = "#070904";
+      snakeCtx.fill();
+      snakeCtx.beginPath();
+      snakeCtx.arc(ex - er*0.34, ey - er*0.36, er*0.2, 0, Math.PI*2);
+      snakeCtx.fillStyle = "rgba(255,255,255,.85)";
+      snakeCtx.fill();
+    });
+
+    // nostrils and heat pits
+    snakeCtx.fillStyle = "rgba(8,9,5,.85)";
+    [-1,1].forEach(function(side){
+      snakeCtx.beginPath();
+      snakeCtx.arc(hl*0.66, side*hw*0.3, maxW*0.09, 0, Math.PI*2);
+      snakeCtx.fill();
+      snakeCtx.beginPath();
+      snakeCtx.arc(hl*0.47, side*hw*0.48, maxW*0.1, 0, Math.PI*2);
+      snakeCtx.fill();
+    });
+
+    snakeCtx.restore();
+  }
+
+  function snakeFrame(ts){
+    if(!snakeLast) snakeLast = ts;
+    var dt = Math.min(0.05, (ts - snakeLast)/1000);
+    snakeLast = ts;
+    snakeTime += dt;
+    snakeDraw();
+    snakeRAF = window.requestAnimationFrame(snakeFrame);
+  }
+
+  function startSnakeAnim(){
+    if(!snakeCtx || snakeRAF) return;
+    snakeResize();
+    snakePts = null;
+    snakeLast = 0;
+    if(reduceMotionPref()){
+      snakeTime = 2.2;
+      snakeDraw();
+      return;
+    }
+    snakeRAF = window.requestAnimationFrame(snakeFrame);
+  }
+
+  function stopSnakeAnim(){
+    if(snakeRAF){ window.cancelAnimationFrame(snakeRAF); snakeRAF = null; }
+    if(snakeCtx) snakeCtx.clearRect(0,0,snakeCanvas.clientWidth, snakeCanvas.clientHeight);
+  }
+
+  window.addEventListener("resize", function(){
+    if(snakeRAF){ snakeResize(); snakePts = null; }
+  });
+
+  function reduceMotionPref(){
+    return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  }
+
+  // ---- Sound engine: soft, melodic, and gentle on a PA ----
+  // The spin plays actual music: a warm pad underneath, and a music-box note on
+  // each wedge the pointer passes, walking down a pentatonic scale so the sound
+  // settles as the wheel settles. Mid-focused with a rumble filter and a limiter,
+  // so it stays smooth through a hall system instead of booming or spiking.
+  var audioCtx = null;
+  var masterGain = null, roomVerb = null;
+  var soundOn = true;
+
+  function makeImpulse(seconds, decay){
+    var len = Math.ceil(audioCtx.sampleRate*seconds);
+    var ir = audioCtx.createBuffer(2, len, audioCtx.sampleRate);
+    for(var ch=0; ch<2; ch++){
+      var d = ir.getChannelData(ch);
+      for(var i=0;i<len;i++){
+        d[i] = (Math.random()*2 - 1) * Math.pow(1 - i/len, decay);
+      }
+    }
+    return ir;
+  }
+
+  function ensureAudio(){
+    if(!audioCtx){
+      try{ audioCtx = new (window.AudioContext || window.webkitAudioContext)(); }
+      catch(e){ audioCtx = null; }
+      if(audioCtx){
+        try{
+          masterGain = audioCtx.createGain();
+          masterGain.gain.value = soundOn ? 0.95 : 0;
+
+          // keep sub-bass rumble out of the speakers
+          var rumble = audioCtx.createBiquadFilter();
+          rumble.type = "highpass";
+          rumble.frequency.value = 150;
+          rumble.Q.value = 0.7;
+
+          // gentle air on top rather than a hard presence spike
+          var air = audioCtx.createBiquadFilter();
+          air.type = "highshelf";
+          air.frequency.value = 5000;
+          air.gain.value = 2;
+
+          // soften anything that gets close to peaking
+          var limiter = audioCtx.createDynamicsCompressor();
+          limiter.threshold.value = -16;
+          limiter.knee.value = 12;
+          limiter.ratio.value = 5;
+          limiter.attack.value = 0.012;
+          limiter.release.value = 0.35;
+
+          masterGain.connect(rumble).connect(air).connect(limiter).connect(audioCtx.destination);
+
+          // a soft hall: long enough to bloom, short enough to stay clear
+          roomVerb = audioCtx.createConvolver();
+          roomVerb.buffer = makeImpulse(1.6, 3.0);
+          var verbOut = audioCtx.createGain();
+          verbOut.gain.value = 0.4;
+          roomVerb.connect(verbOut).connect(rumble);
+        }catch(e){ masterGain = null; roomVerb = null; }
+      }
+    } else if(audioCtx.state === "suspended"){
+      audioCtx.resume();
+    }
+    return audioCtx;
+  }
+
+  function toBus(node, wet){
+    if(!masterGain){ node.connect(audioCtx.destination); return; }
+    node.connect(masterGain);
+    if(wet > 0 && roomVerb){
+      var send = audioCtx.createGain();
+      send.gain.value = wet;
+      node.connect(send);
+      send.connect(roomVerb);
+    }
+  }
+
+  // a short burst of white noise, optionally fading out across its length —
+  // the raw material for the ticks and for the rush of air under the spin
+  function noiseBuffer(seconds, fade){
+    var len = Math.ceil(audioCtx.sampleRate*seconds);
+    var buf = audioCtx.createBuffer(1, len, audioCtx.sampleRate);
+    var d = buf.getChannelData(0);
+    for(var i=0;i<len;i++){
+      d[i] = (Math.random()*2 - 1) * (fade ? (1 - i/len) : 1);
+    }
+    return buf;
+  }
+
+  // C major pentatonic — no interval in it can sound harsh
+  var SCALE = [523.25, 587.33, 659.25, 783.99, 880, 1046.5, 1174.66, 1318.51];
+
+  // a rounded music-box tone: fundamental plus two quiet partials, soft attack
+  function softNote(freq, start, dur, amp, wet){
+    if(!audioCtx) return;
+    var lp = audioCtx.createBiquadFilter();
+    lp.type = "lowpass";
+    lp.frequency.value = 3600;
+    lp.Q.value = 0.6;
+    var out = audioCtx.createGain();
+    out.gain.value = 1;
+    lp.connect(out);
+    toBus(out, wet === undefined ? 0.45 : wet);
+
+    [[1, amp], [2, amp*0.2], [3.02, amp*0.07]].forEach(function(part){
+      var osc = audioCtx.createOscillator();
+      var g = audioCtx.createGain();
+      osc.type = "sine";
+      osc.frequency.value = freq*part[0];
+      osc.detune.value = Math.random()*6 - 3;
+      g.gain.setValueAtTime(0.0001, start);
+      g.gain.linearRampToValueAtTime(part[1], start + 0.02);
+      g.gain.exponentialRampToValueAtTime(0.0001, start + dur);
+      osc.connect(g).connect(lp);
+      osc.start(start);
+      osc.stop(start + dur + 0.05);
+    });
+  }
+
+  // The wheel's own voice: a dry mechanical "tik" as the pointer passes each peg.
+  // One tick per wedge crossing, so the rhythm IS the wheel's speed — a fast
+  // ratchet at first, thinning to single tiks as it winds down. The pitch drops
+  // a little on the way for that slowing-clockwork feel.
+  function playTick(progress){
+    if(!audioCtx) return;
+    try{
+      var p = Math.max(0, Math.min(1, progress || 0));
+      var t0 = audioCtx.currentTime;
+
+      // the click itself: a tight filtered noise burst
+      var src = audioCtx.createBufferSource();
+      src.buffer = noiseBuffer(0.035, true);
+      var bp = audioCtx.createBiquadFilter();
+      bp.type = "bandpass";
+      bp.Q.value = 3.2;   // wide enough to pass real energy, so the tik has weight
+      bp.frequency.value = (2400 - 900*p) * (0.97 + Math.random()*0.06);
+      var g = audioCtx.createGain();
+      g.gain.setValueAtTime(0.42 + 0.1*p, t0);
+      g.gain.exponentialRampToValueAtTime(0.0001, t0 + 0.028 + 0.022*p);
+      src.connect(bp).connect(g);
+      toBus(g, 0.16);
+      src.start(t0);
+
+      // a touch of wooden body under the click
+      var body = audioCtx.createOscillator();
+      var bg = audioCtx.createGain();
+      body.type = "triangle";
+      body.frequency.setValueAtTime(980 - 380*p, t0);
+      body.frequency.exponentialRampToValueAtTime(520 - 190*p, t0 + 0.03);
+      bg.gain.setValueAtTime(0.2 + 0.05*p, t0);
+      bg.gain.exponentialRampToValueAtTime(0.0001, t0 + 0.045);
+      body.connect(bg);
+      toBus(bg, 0.12);
+      body.start(t0);
+      body.stop(t0 + 0.06);
+    }catch(e){}
+  }
+
+  // The ticking IS the spin sound now, so the bed under it stays almost bare:
+  // just a faint breath of air tracking the wheel's speed, well below the tiks,
+  // fading to nothing as the wheel stops.
+  function startSpinAtmos(durationMs){
+    if(!audioCtx) return;
+    try{
+      var t0 = audioCtx.currentTime;
+      var dur = durationMs/1000;
+
+      var air = audioCtx.createBufferSource();
+      air.buffer = noiseBuffer(2, false);
+      air.loop = true;
+
+      var band = audioCtx.createBiquadFilter();
+      band.type = "bandpass";
+      band.Q.value = 1.2;
+
+      var gain = audioCtx.createGain();
+
+      var N = 96;
+      var vMax = velocityAt(0.001) || 1;
+      var freqs = new Float32Array(N);
+      var gains = new Float32Array(N);
+      for(var k=0;k<N;k++){
+        var v = velocityAt(k/(N-1))/vMax;
+        if(!isFinite(v) || v < 0) v = 0;
+        v = Math.min(1, v);
+        freqs[k] = 200 + v*700;
+        gains[k] = 0.006 + v*0.032;
+      }
+      gains[N-1] = 0.0001;
+
+      band.frequency.setValueCurveAtTime(freqs, t0, dur);
+      gain.gain.setValueCurveAtTime(gains, t0, dur);
+
+      air.connect(band).connect(gain);
+      toBus(gain, 0.15);
+      air.start(t0);
+      air.stop(t0 + dur + 0.05);
+    }catch(e){}
+  }
+
+  function stopPulses(){ /* no percussive layer in the soft palette */ }
+
+  // A snake's hiss: shaped noise with the air running out of it, plus a slow
+  // organic wobble so it breathes instead of sounding like static.
+  function makeHiss(start, dur, amp){
+    if(!audioCtx) return;
+    try{
+      // the sibilant top — where a hiss actually lives
+      var src = audioCtx.createBufferSource();
+      src.buffer = noiseBuffer(dur + 0.1, false);
+
+      var hp = audioCtx.createBiquadFilter();
+      hp.type = "highpass";
+      hp.frequency.value = 2000;
+
+      var bp = audioCtx.createBiquadFilter();
+      bp.type = "bandpass";
+      bp.Q.value = 0.65;
+      bp.frequency.setValueAtTime(5400, start);
+      bp.frequency.exponentialRampToValueAtTime(2900, start + dur);  // breath running out
+
+      var g = audioCtx.createGain();
+      g.gain.setValueAtTime(0.0001, start);
+      g.gain.exponentialRampToValueAtTime(amp, start + 0.08);
+      g.gain.setValueAtTime(amp, start + dur*0.45);
+      g.gain.exponentialRampToValueAtTime(0.0001, start + dur);
+
+      // breath wobble
+      var lfo = audioCtx.createOscillator();
+      lfo.type = "sine";
+      lfo.frequency.value = 6 + Math.random()*3;
+      var lfoAmt = audioCtx.createGain();
+      lfoAmt.gain.value = amp*0.22;
+      lfo.connect(lfoAmt).connect(g.gain);
+
+      src.connect(hp).connect(bp).connect(g);
+      toBus(g, 0.3);
+      src.start(start);
+      lfo.start(start);
+      lfo.stop(start + dur + 0.1);
+
+      // a little throat underneath so it has body, not just air
+      var low = audioCtx.createBufferSource();
+      low.buffer = noiseBuffer(dur + 0.1, true);
+      var lbp = audioCtx.createBiquadFilter();
+      lbp.type = "bandpass";
+      lbp.frequency.value = 1250;
+      lbp.Q.value = 1.2;
+      var lg = audioCtx.createGain();
+      lg.gain.setValueAtTime(0.0001, start);
+      lg.gain.exponentialRampToValueAtTime(amp*0.35, start + 0.1);
+      lg.gain.exponentialRampToValueAtTime(0.0001, start + dur*0.9);
+      low.connect(lbp).connect(lg);
+      toBus(lg, 0.2);
+      low.start(start);
+    }catch(e){}
+  }
+
+  function playPopSound(kind){
+    if(!audioCtx) return;
+    try{
+      var t0 = audioCtx.currentTime;
+
+      if(kind === "snake"){
+        // the serpent's own voice — a long breathy hiss, then a shorter second
+        // breath, over a quiet minor fall
+        makeHiss(t0, 2.1, 0.29);          // Hisssssss....
+        makeHiss(t0 + 1.85, 1.0, 0.18);   // ...sssss
+
+        [[880, 0.1], [659.25, 0.26], [523.25, 0.42], [415.3, 0.6]].forEach(function(n){
+          softNote(n[0], t0 + n[1], 1.5, 0.05, 0.6);
+        });
+        var glide = audioCtx.createOscillator();
+        var gg = audioCtx.createGain();
+        var glp = audioCtx.createBiquadFilter();
+        glp.type = "lowpass";
+        glp.frequency.value = 1200;
+        glide.type = "sine";
+        glide.frequency.setValueAtTime(440, t0 + 0.45);
+        glide.frequency.exponentialRampToValueAtTime(196, t0 + 1.7);
+        gg.gain.setValueAtTime(0.0001, t0 + 0.45);
+        gg.gain.linearRampToValueAtTime(0.04, t0 + 0.7);
+        gg.gain.exponentialRampToValueAtTime(0.0001, t0 + 1.9);
+        glide.connect(glp).connect(gg);
+        toBus(gg, 0.5);
+        glide.start(t0 + 0.45); glide.stop(t0 + 1.95);
+
+      } else if(kind === "zero"){
+        // a soft sigh: two falling notes, nothing sour
+        softNote(659.25, t0, 1.2, 0.09, 0.55);
+        softNote(523.25, t0 + 0.22, 1.5, 0.085, 0.55);
+        softNote(392, t0 + 0.46, 1.8, 0.07, 0.6);
+
+      } else if(kind === "penalty"){
+        // a soft drop: the win figure turned upside down, still gentle
+        softNote(659.25, t0, 1.3, 0.09, 0.55);
+        softNote(493.88, t0 + 0.2, 1.5, 0.085, 0.55);
+        softNote(349.23, t0 + 0.42, 1.9, 0.075, 0.6);
+
+      } else if(kind === "pass"){
+        // handing over: a calm two-note step sideways, neither win nor loss
+        softNote(587.33, t0, 1.4, 0.085, 0.55);
+        softNote(587.33, t0 + 0.26, 1.6, 0.075, 0.55);
+        softNote(880, t0 + 0.52, 1.5, 0.055, 0.65);
+
+      } else if(kind === "jackpot"){
+        // the jackpot: the win figure carried a full octave higher and wider
+        [[523.25, 0], [659.25, 0.09], [783.99, 0.18], [1046.5, 0.27], [1318.51, 0.36]].forEach(function(n){
+          softNote(n[0], t0 + n[1], 2.2 - n[1], 0.1, 0.6);
+        });
+        softNote(1567.98, t0 + 0.5, 2, 0.06, 0.75);
+        softNote(2093, t0 + 0.62, 1.8, 0.04, 0.8);
+
+        var jSwell = audioCtx.createOscillator();
+        var jg = audioCtx.createGain();
+        var jlp = audioCtx.createBiquadFilter();
+        jlp.type = "lowpass";
+        jlp.frequency.value = 1300;
+        jSwell.type = "triangle";
+        jSwell.frequency.value = 261.63;
+        jg.gain.setValueAtTime(0.0001, t0);
+        jg.gain.linearRampToValueAtTime(0.06, t0 + 0.4);
+        jg.gain.exponentialRampToValueAtTime(0.0001, t0 + 2.4);
+        jSwell.connect(jlp).connect(jg);
+        toBus(jg, 0.5);
+        jSwell.start(t0); jSwell.stop(t0 + 2.5);
+
+      } else {
+        // a warm rising figure with a gentle bloom on top
+        [[523.25, 0], [659.25, 0.11], [783.99, 0.22], [1046.5, 0.34]].forEach(function(n){
+          softNote(n[0], t0 + n[1], 1.9 - n[1], 0.095, 0.55);
+        });
+        softNote(1318.51, t0 + 0.46, 1.7, 0.05, 0.7);
+
+        var swell = audioCtx.createOscillator();
+        var sg = audioCtx.createGain();
+        var slp = audioCtx.createBiquadFilter();
+        slp.type = "lowpass";
+        slp.frequency.value = 1100;
+        swell.type = "triangle";
+        swell.frequency.value = 261.63;
+        sg.gain.setValueAtTime(0.0001, t0);
+        sg.gain.linearRampToValueAtTime(0.05, t0 + 0.35);
+        sg.gain.exponentialRampToValueAtTime(0.0001, t0 + 2);
+        swell.connect(slp).connect(sg);
+        toBus(sg, 0.5);
+        swell.start(t0); swell.stop(t0 + 2.1);
+      }
+    }catch(e){}
+  }
+
+  function setSoundOn(on){
+    soundOn = on;
+    if(masterGain && audioCtx){
+      try{
+        masterGain.gain.setTargetAtTime(on ? 0.95 : 0, audioCtx.currentTime, 0.03);
+      }catch(e){}
+    }
+  }
+
+  // cubic-bezier evaluator matching the CSS spin easing, so the tick sounds
+  // land exactly on each wedge crossing
+  function makeBezier(x1,y1,x2,y2){
+    function coord(t,a,b){
+      var mt = 1-t;
+      return 3*mt*mt*t*a + 3*mt*t*t*b + t*t*t;
+    }
+    function tForX(x){
+      var lo=0, hi=1, t=x;
+      for(var i=0;i<20;i++){
+        t = (lo+hi)/2;
+        var est = coord(t,x1,x2);
+        if(Math.abs(est-x) < 1e-4) break;
+        if(est < x) lo = t; else hi = t;
+      }
+      return t;
+    }
+    return {
+      progressAt: function(x){ return coord(tForX(x), y1, y2); },
+      xForProgress: function(p){
+        var lo=0, hi=1;
+        for(var i=0;i<24;i++){
+          var mid=(lo+hi)/2;
+          var y = coord(tForX(mid), y1, y2);
+          if(y < p) lo = mid; else hi = mid;
+        }
+        return (lo+hi)/2;
+      }
+    };
+  }
+
+  var SPIN_EASE = [0.1, 0.78, 0.15, 1];
+  var SPIN_EASE_CSS = "cubic-bezier(" + SPIN_EASE.join(", ") + ")";
+  var spinEasing = makeBezier(SPIN_EASE[0], SPIN_EASE[1], SPIN_EASE[2], SPIN_EASE[3]);
+
+  // normalised angular velocity at time fraction x (derivative of the easing)
+  function velocityAt(x){
+    var h = 0.004;
+    var a = Math.max(0, x - h);
+    var b = Math.min(1, x + h);
+    if(b <= a) return 0;
+    return (spinEasing.progressAt(b) - spinEasing.progressAt(a)) / (b - a);
+  }
+
+  // One tik per wedge crossing, except at the very start where the wheel is
+  // turning too fast for the ear to separate them — there they are thinned to a
+  // minimum spacing so it reads as a rapid ratchet instead of a buzz. As the
+  // wheel slows, every crossing gets its own tik and they naturally spread out.
+  var MIN_TICK_GAP = 0.058;   // seconds
+
+  function scheduleTicks(totalRotationDeg, durationMs){
+    var segDeg = (segAngle*180/Math.PI);
+    var numTicks = Math.floor(totalRotationDeg/segDeg);
+    var lastAt = -1;
+    for(var k=1;k<=numTicks;k++){
+      var p = (k*segDeg)/totalRotationDeg;
+      if(p >= 1) break;
+      var x = spinEasing.xForProgress(p);
+      var at = x*durationMs/1000;
+      if(lastAt >= 0 && (at - lastAt) < MIN_TICK_GAP) continue;
+      lastAt = at;
+      (function(progress, delayMs){
+        window.setTimeout(function(){ playTick(progress); }, delayMs);
+      })(x, at*1000);
+    }
+  }
+
+  // ---- Spin logic ----
+  var spinBtn = document.getElementById("spinBtn");
+  var overlay = document.getElementById("resultOverlay");
+  var overlayBigWrap = overlay.querySelector(".result-big");
+  var overlayMsgWrap = overlay.querySelector(".result-msg");
+  var overlayBig = document.getElementById("overlayBig");
+  var overlayMsg = document.getElementById("overlayMsg");
+  var confettiLayer = document.getElementById("confettiLayer");
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  var MESSAGES = {
+    "500": "You are the LUCKY one....Congratulation",
+    "-100": "Watt lag gayi !!!!!",
+    "PASS": "You are forced to pass this question. Congratulation to next team",
+    "400": "Wow! Go for it and answer carefully to get maximum points",
+    "300": "Superb! You got a chance to score high...",
+    "200": "Great going....",
+    "100": "Cool....",
+    "0": "Ahhhhh.... HARD LUCK",
+    "SNAKE": "FISHHHHHHHH.... you SCREWED it"
+  };
+
+  var CONFETTI_COLORS = ["#f0d492","#c9974a","#e05a68","#7a2233","#3fa885","#1f4d3a","#f3e7cc"];
+
+  var currentRotation = 0;
+  var spinning = false;
+  var autoHideTimer = null;
+
+  function launchConfetti(pieces){
+    confettiLayer.innerHTML = "";
+    var count = pieces || 60;
+    for(var i=0;i<count;i++){
+      var piece = document.createElement("div");
+      piece.className = "confetti-piece";
+      var w = 6 + Math.random()*7;
+      var h = 10 + Math.random()*10;
+      piece.style.left = (Math.random()*100) + "%";
+      piece.style.width = w + "px";
+      piece.style.height = h + "px";
+      piece.style.background = CONFETTI_COLORS[Math.floor(Math.random()*CONFETTI_COLORS.length)];
+      piece.style.transform = "rotate(" + Math.floor(Math.random()*360) + "deg)";
+      var dur = 2.1 + Math.random()*1.8;
+      var delay = Math.random()*0.5;
+      piece.style.animationDuration = dur + "s";
+      piece.style.animationDelay = delay + "s";
+      confettiLayer.appendChild(piece);
+    }
+  }
+
+  // Scale a single line down until it fits its container. Scaling is anchored
+  // to the left edge because an over-wide inline box already starts there, so
+  // the scaled result lands flush inside the container instead of drifting right.
+  // Shrink a line until it fits its container, by reducing the font size itself
+  // rather than transform-scaling: the layout box shrinks with the text, so the
+  // line stays centred and never wraps. offsetWidth is used because it is a
+  // layout measurement, unaffected by any scale transform an ancestor is
+  // animating through.
+  function fitOneLine(el, maxWidth){
+    el.style.fontSize = "";
+    el.style.transform = "none";
+    if(typeof maxWidth !== "number" || !maxWidth){
+      var parent = el.parentElement;
+      maxWidth = parent ? parent.clientWidth : 0;
+    }
+    if(!(maxWidth > 0)) return;
+
+    var w = el.offsetWidth;
+    if(w <= maxWidth) return;
+
+    var base = parseFloat(window.getComputedStyle(el).fontSize) || 16;
+    var size = base * (maxWidth / w) * 0.99;
+    el.style.fontSize = size + "px";
+
+    // one corrective pass for fonts whose advance widths aren't perfectly linear
+    var w2 = el.offsetWidth;
+    if(w2 > maxWidth){
+      el.style.fontSize = (size * (maxWidth / w2) * 0.99) + "px";
+    }
+  }
+
+  // The popup's paragraphs are centred flex items, so they shrink-wrap to their
+  // own text; the real constraint is the overlay's inner width, kept a little
+  // narrower so the biggest lines still breathe at the screen edges.
+  function fitLine(el){
+    fitOneLine(el, overlay.clientWidth * 0.9);
+  }
+
+  // ---- Every headline shrinks to fit its own line; nothing ever wraps ----
+  var FIT_TARGETS = ["eventHeading","subHeading"]
+    .map(function(id){ return document.getElementById(id); })
+    .filter(Boolean)
+    .concat(Array.prototype.slice.call(document.querySelectorAll("[data-fit]")));
+
+  // grow (or shrink) a single line until it spans its own line exactly, never wrapping
+  function growToFit(el, maxWidth, cap){
+    if(!el || !(maxWidth > 0)) return;
+    el.style.fontSize = "";
+    el.style.transform = "none";
+    var base = parseFloat(window.getComputedStyle(el).fontSize) || 16;
+    var w = el.offsetWidth;
+    if(!w) return;
+    var size = base * (maxWidth / w) * 0.99;
+    if(cap) size = Math.min(size, cap);
+    el.style.fontSize = size + "px";
+    var w2 = el.offsetWidth;
+    if(w2 > maxWidth) el.style.fontSize = (size * (maxWidth / w2) * 0.99) + "px";
+  }
+
+  var subHeadingEl = document.getElementById("subHeading");
+  var eventHeadingEl = document.getElementById("eventHeading");
+
+  function fitAllLines(){
+    for(var i=0;i<FIT_TARGETS.length;i++){
+      var el = FIT_TARGETS[i];
+      if(el === subHeadingEl || el === eventHeadingEl) continue;
+      var parent = el.parentElement;
+      var avail = parent ? parent.clientWidth * 0.97 : 0;
+      fitOneLine(el, avail);
+    }
+
+    // the title spans its line; the sub-heading spans as much of its own line as
+    // it can while staying the junior of the two
+    var evSize = 0;
+    if(eventHeadingEl && eventHeadingEl.parentElement){
+      growToFit(eventHeadingEl,
+                eventHeadingEl.parentElement.clientWidth * 0.98,
+                Math.min(window.innerHeight * 0.072, 62));
+      evSize = parseFloat(window.getComputedStyle(eventHeadingEl).fontSize) || 0;
+    }
+    if(subHeadingEl && subHeadingEl.parentElement){
+      growToFit(subHeadingEl,
+                subHeadingEl.parentElement.clientWidth * 0.98,
+                evSize ? evSize * 0.9 : 0);
+    }
+  }
+  fitAllLines();
+  // re-fit once webfonts have swapped in (metrics change on load)
+  if(document.fonts && document.fonts.ready){
+    document.fonts.ready.then(function(){ fitAllLines(); });
+  }
+  window.addEventListener("load", fitAllLines);
+  window.addEventListener("resize", function(){
+    window.requestAnimationFrame(fitAllLines);
+  });
+
+  function showResult(label){
+    var type = typeOf(label);
+
+    overlay.classList.remove("danger");
+    stopSnakeAnim();
+    confettiLayer.innerHTML = "";
+    overlayBigWrap.className = "result-big";
+    overlayMsgWrap.className = "result-msg";
+    overlayBig.style.fontSize = "";
+    overlayMsg.style.fontSize = "";
+
+    if(type === "snake"){
+      overlayBig.textContent = "SNAKE";
+      overlayBigWrap.classList.add("tone-snake");
+      overlayMsgWrap.classList.add("tone-snake");
+      overlay.classList.add("danger");
+      window.requestAnimationFrame(startSnakeAnim);
+    } else if(type === "zero"){
+      overlayBig.textContent = "0";
+      overlayBigWrap.classList.add("tone-zero");
+    } else if(type === "pass"){
+      overlayBig.textContent = "PASS";
+      overlayBigWrap.classList.add("tone-pass");
+      overlayMsgWrap.classList.add("tone-pass");
+    } else if(type === "penalty"){
+      overlayBig.textContent = "-100";
+      overlayBigWrap.classList.add("tone-penalty");
+      overlayMsgWrap.classList.add("tone-penalty");
+    } else {
+      overlayBig.textContent = displayLabel(label);
+      if(!reduceMotion) launchConfetti(type === "jackpot" ? 110 : 60);
+    }
+
+    overlayMsg.textContent = MESSAGES[label];
+    overlay.classList.add("show");
+    playPopSound(type);
+
+    window.requestAnimationFrame(function(){
+      fitLine(overlayBig);
+      fitLine(overlayMsg);
+    });
+
+    if(autoHideTimer) window.clearTimeout(autoHideTimer);
+    autoHideTimer = window.setTimeout(hideResult, 6000);
+  }
+
+  function hideResult(){
+    overlay.classList.remove("show");
+    if(autoHideTimer){ window.clearTimeout(autoHideTimer); autoHideTimer = null; }
+    window.setTimeout(function(){
+      overlay.classList.remove("danger");
+      stopSnakeAnim();
+      confettiLayer.innerHTML = "";
+    }, 320);
+  }
+
+  overlay.addEventListener("click", hideResult);
+  window.addEventListener("keydown", function(e){
+    if(e.key === "Escape" && overlay.classList.contains("show")) hideResult();
+  });
+
+  function spin(){
+    if(spinning) return;
+    spinning = true;
+    spinBtn.disabled = true;
+    ensureAudio();
+
+    var targetIndex = Math.floor(Math.random()*N);
+    // angle (deg, clockwise from top) of this segment's center in the UNROTATED drawing
+    var segCenterDeg = (targetIndex*segAngle + segAngle/2) * (180/Math.PI);
+    // rotation R such that (segCenterDeg + R) mod 360 === 0
+    var R = (360 - (segCenterDeg % 360)) % 360;
+
+    var curMod = ((currentRotation % 360) + 360) % 360;
+    var delta = ((R - curMod) % 360 + 360) % 360;
+    var fullSpins = 6 + Math.floor(Math.random()*3); // 6-8 extra full turns
+    var newRotation = currentRotation + delta + fullSpins*360;
+    var totalRotationDeg = newRotation - currentRotation;
+
+    var duration = reduceMotion ? 400 : 5000;
+    canvas.style.transition = "transform " + duration + "ms " + SPIN_EASE_CSS;
+    canvas.style.transform = "rotate(" + newRotation + "deg)";
+    currentRotation = newRotation;
+
+    if(!reduceMotion){
+      startSpinAtmos(duration);
+      scheduleTicks(totalRotationDeg, duration);
+    }
+
+    window.setTimeout(function(){
+      spinning = false;
+      spinBtn.disabled = false;
+      showResult(ORDER[targetIndex]);
+    }, duration + 60);
+  }
+
+  spinBtn.addEventListener("click", spin);
+
+  var soundBtn = document.getElementById("soundBtn");
+  if(soundBtn){
+    soundBtn.addEventListener("click", function(){
+      ensureAudio();
+      var nowOn = !soundOn;
+      setSoundOn(nowOn);
+      soundBtn.classList.toggle("is-muted", !nowOn);
+      soundBtn.innerHTML = nowOn ? "&#9835;" : "&#9834;";
+      soundBtn.setAttribute("aria-pressed", nowOn ? "false" : "true");
+      soundBtn.setAttribute("aria-label", nowOn ? "Mute sound" : "Unmute sound");
+      soundBtn.setAttribute("title", nowOn ? "Mute sound" : "Unmute sound");
+    });
+  }
+})();
+</script>
+
+<script>
+/* ============ Password gate (a doorkeeper for the hall, not real security) ============ */
+(function(){
+  "use strict";
+  var PASSWORD = "sharad";
+  var gate  = document.getElementById("gate");
+  var card  = document.getElementById("gateCard");
+  var input = document.getElementById("gateInput");
+  var btn   = document.getElementById("gateBtn");
+  var err   = document.getElementById("gateErr");
+  if(!gate) return;
+
+  function tryOpen(){
+    if((input.value || "").trim().toLowerCase() === PASSWORD){
+      gate.classList.add("unlocked");
+      window.setTimeout(function(){
+        gate.parentNode && gate.parentNode.removeChild(gate);
+        window.dispatchEvent(new Event("resize"));
+      }, 600);
+    } else {
+      err.classList.add("show");
+      card.classList.remove("shake");
+      void card.offsetWidth;
+      card.classList.add("shake");
+      input.value = "";
+      input.focus();
+    }
+  }
+
+  btn.addEventListener("click", tryOpen);
+  input.addEventListener("keydown", function(e){
+    if(e.key === "Enter"){ e.preventDefault(); tryOpen(); }
+    else err.classList.remove("show");
+  });
+  window.setTimeout(function(){ input.focus(); }, 120);
+})();
+
+/* ============ Muhavare: the hidden-spelling game ============ */
+(function(){
+  "use strict";
+
+  var MUHAVARE = [
+    { t:"Andhon mein kaana raja",
+      h:"\u0905\u0902\u0927\u094b\u0902 \u092e\u0947\u0902 \u0915\u093e\u0928\u093e \u0930\u093e\u091c\u093e",
+      m:"Among the blind, the one-eyed man is king — a modest talent looks grand where there is none." },
+    { t:"Gade murde ukhaadna",
+      h:"\u0917\u0921\u093c\u0947 \u092e\u0941\u0930\u094d\u0926\u0947 \u0909\u0916\u093e\u0921\u093c\u0928\u093e",
+      m:"To dig up buried corpses — to rake up matters long dead and settled." },
+    { t:"Ghar ka bhedi Lanka dhaaye",
+      h:"\u0918\u0930 \u0915\u093e \u092d\u0947\u0926\u0940 \u0932\u0902\u0915\u093e \u0922\u093e\u090f",
+      m:"The insider who knows the secret can bring the whole fortress down." },
+    { t:"Din mein taare dikhana",
+      h:"\u0926\u093f\u0928 \u092e\u0947\u0902 \u0924\u093e\u0930\u0947 \u0926\u093f\u0916\u093e\u0928\u093e",
+      m:"To show someone stars in broad daylight — to give them a thoroughly hard time." },
+    { t:"Naak mein dam karna",
+      h:"\u0928\u093e\u0915 \u092e\u0947\u0902 \u0926\u092e \u0915\u0930\u0928\u093e",
+      m:"To choke the very breath in one's nose — to harass someone without end." },
+    { t:"Nau do gyarah hona",
+      h:"\u0928\u094c \u0926\u094b \u0917\u094d\u092f\u093e\u0930\u0939 \u0939\u094b\u0928\u093e",
+      m:"Nine and two make eleven — to take to one's heels and vanish." },
+    { t:"Gud gobar karna",
+      h:"\u0917\u0941\u0921\u093c \u0917\u094b\u092c\u0930 \u0915\u0930\u0928\u093e",
+      m:"To turn jaggery into dung — to ruin work that was already well done." },
+    { t:"Jale par namak chhidakna",
+      h:"\u091c\u0932\u0947 \u092a\u0930 \u0928\u092e\u0915 \u091b\u093f\u0921\u093c\u0915\u0928\u093e",
+      m:"To sprinkle salt on a burn — to make an already painful matter worse." },
+    { t:"Kala Akshar Bhains Barabar",
+      h:"\u0915\u093e\u0932\u093e \u0905\u0915\u094d\u0937\u0930 \u092d\u0948\u0902\u0938 \u092c\u0930\u093e\u092c\u0930",
+      m:"Black letters are the same as a buffalo — to be wholly unlettered." },
+    { t:"Naach Na Jaane Aangan Teda",
+      h:"\u0928\u093e\u091a \u0928 \u091c\u093e\u0928\u0947 \u0906\u0901\u0917\u0928 \u091f\u0947\u0922\u093c\u093e",
+      m:"Cannot dance, and blames the crooked courtyard — faulting circumstances for one's own failing." },
+    { t:"Aasman Sir pe Uthana",
+      h:"\u0906\u0938\u092e\u093e\u0928 \u0938\u093f\u0930 \u092a\u0947 \u0909\u0920\u093e\u0928\u093e",
+      m:"To lift the sky onto one's head — to raise a tremendous uproar." }
+  ];
+
+  var PALETTE = [
+    ["#d0503f","#7d1c16"], ["#2f8a6a","#124030"], ["#dda01f","#7d4c06"],
+    ["#9351b0","#4a1f68"], ["#2d78b4","#123f6a"], ["#c43a68","#6d1234"],
+    ["#559a31","#24521a"], ["#cc6a1c","#733008"], ["#4560c0","#1d2a6b"],
+    ["#b8952c","#5f4710"], ["#2c9494","#0e4c4c"]
+  ];
+
+  var CONSONANTS = "BCDFGHJKLMNPQRSTVWXYZ".split("");
+  var VOWELS = "AEIOU".split("");
+
+  var rulesScreen = document.getElementById("rulesScreen");
+  var startBtn    = document.getElementById("startBtn");
+  var rulesBtn    = document.getElementById("rulesBtn");
+  var homeScreen  = document.getElementById("homeScreen");
+  var playScreen  = document.getElementById("playScreen");
+  var serialGrid  = document.getElementById("serialGrid");
+  var wheelPane   = document.querySelector(".wheel-pane");
+  var phraseArea  = document.getElementById("phraseArea");
+  var meaningWrap = document.getElementById("meaningScroll");
+  var meaningText = document.getElementById("meaningText");
+  var hindiWrap   = document.getElementById("hindiAnswer");
+  var hindiText   = document.getElementById("hindiText");
+  var consRow     = document.getElementById("consRow");
+  var consRow2    = document.getElementById("consRow2");
+  var vowelRow    = document.getElementById("vowelRow");
+  var qBadge      = document.getElementById("qBadge");
+  var backBtn     = document.getElementById("backBtn");
+  var revealBtn   = document.getElementById("revealBtn");
+  var soundBtn    = document.getElementById("soundBtn");
+
+  var cells = [];
+  var letterBtns = {};
+  var currentIdx = -1;
+  var solved = false;
+  var serialBoxes = [];
+  var solvedSet = {};
+
+  /* ---------- tiny antique audio, obeys the page's own mute toggle ---------- */
+  var actx = null;
+  function audioOn(){
+    return !soundBtn || soundBtn.getAttribute("aria-pressed") !== "true";
+  }
+  function tone(freq, dur, type, vol, delay){
+    if(!audioOn()) return;
+    try{
+      if(!actx) actx = new (window.AudioContext || window.webkitAudioContext)();
+      if(actx.state === "suspended") actx.resume();
+      var t0 = actx.currentTime + (delay || 0);
+      var o = actx.createOscillator();
+      var g = actx.createGain();
+      o.type = type || "sine";
+      o.frequency.setValueAtTime(freq, t0);
+      g.gain.setValueAtTime(0.0001, t0);
+      g.gain.exponentialRampToValueAtTime(vol || 0.12, t0 + 0.012);
+      g.gain.exponentialRampToValueAtTime(0.0001, t0 + dur);
+      o.connect(g); g.connect(actx.destination);
+      o.start(t0); o.stop(t0 + dur + 0.05);
+    }catch(e){}
+  }
+  function sndHit(i){ tone(660 + (i||0)*90, 0.28, "triangle", 0.10, (i||0)*0.09); }
+  function sndMiss(){ tone(150, 0.34, "sawtooth", 0.07); tone(112, 0.4, "sine", 0.06, 0.05); }
+  function sndSolve(){
+    [523.25, 659.25, 783.99, 1046.5].forEach(function(f,i){
+      tone(f, 0.55, "triangle", 0.11, i*0.11);
+    });
+  }
+  function sndOpen(){ tone(392, 0.2, "sine", 0.09); tone(587.33, 0.3, "sine", 0.08, 0.07); }
+
+  /* ---------- home board ---------- */
+  function buildBoard(){
+    serialGrid.innerHTML = "";
+    serialBoxes = [];
+    MUHAVARE.forEach(function(item, i){
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "serial-box";
+      b.textContent = String(i + 1);
+      b.setAttribute("aria-label", "Question " + (i + 1));
+      var pair = PALETTE[i % PALETTE.length];
+      b.style.setProperty("--c1", pair[0]);
+      b.style.setProperty("--c2", pair[1]);
+      if(solvedSet[i]) b.classList.add("used");
+      b.addEventListener("click", function(){ openQuestion(i); });
+      serialGrid.appendChild(b);
+      serialBoxes.push(b);
+    });
+    fitBoard();
+  }
+
+  // Pick the column count and tile size that fills the board without ever
+  // clipping a row: try every sensible number of columns, keep the biggest
+  // tile that still fits the panel both ways.
+  function fitBoard(){
+    var cs = window.getComputedStyle(serialGrid);
+    var padX = (parseFloat(cs.paddingLeft) || 0) + (parseFloat(cs.paddingRight) || 0);
+    var padY = (parseFloat(cs.paddingTop) || 0) + (parseFloat(cs.paddingBottom) || 0);
+    var availW = serialGrid.clientWidth - padX;
+    var availH = serialGrid.clientHeight - padY;
+    if(availW <= 0 || availH <= 0) return;
+    var gap = parseFloat(cs.columnGap || cs.gap) || 14;
+    var n = MUHAVARE.length;
+    var best = { tile:0, cols:4 };
+    for(var c = 2; c <= Math.min(n, 8); c++){
+      var rows = Math.ceil(n / c);
+      var byW = (availW - (c - 1) * gap) / c;
+      var byH = (availH - (rows - 1) * gap) / rows;
+      var tile = Math.min(byW, byH);
+      if(tile > best.tile) best = { tile:tile, cols:c };
+    }
+    var t = Math.max(44, Math.floor(best.tile));
+    serialGrid.style.setProperty("--tile", t + "px");
+    serialGrid.style.setProperty("--numfs", Math.round(t * 0.44) + "px");
+
+    // safety net: shrink until the board genuinely fits, whatever rounding did
+    for(var guard = 0; guard < 40 && t > 44; guard++){
+      if(serialGrid.scrollHeight <= serialGrid.clientHeight + 1 &&
+         serialGrid.scrollWidth  <= serialGrid.clientWidth + 1) break;
+      t = Math.floor(t * 0.94);
+      serialGrid.style.setProperty("--tile", t + "px");
+      serialGrid.style.setProperty("--numfs", Math.round(t * 0.44) + "px");
+    }
+  }
+
+  /* ---------- letter picker ---------- */
+  function buildLetters(){
+    consRow.innerHTML = "";
+    consRow2.innerHTML = "";
+    vowelRow.innerHTML = "";
+    letterBtns = {};
+
+    var half = Math.ceil(CONSONANTS.length / 2);
+    CONSONANTS.forEach(function(ch, i){
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "ltr cons";
+      b.textContent = ch;
+      b.addEventListener("click", function(){ pick(ch); });
+      (i < half ? consRow : consRow2).appendChild(b);
+      letterBtns[ch] = b;
+    });
+
+    VOWELS.forEach(function(ch){
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "ltr vowel";
+      b.textContent = ch;
+      b.addEventListener("click", function(){ pick(ch); });
+      vowelRow.appendChild(b);
+      letterBtns[ch] = b;
+    });
+  }
+
+  /* ---------- phrase boxes ---------- */
+  function buildPhrase(text){
+    phraseArea.innerHTML = "";
+    phraseArea.classList.remove("solved");
+    cells = [];
+    text.toUpperCase().split(/\s+/).forEach(function(word){
+      if(!word) return;
+      var wd = document.createElement("div");
+      wd.className = "word";
+      for(var i = 0; i < word.length; i++){
+        var ch = word.charAt(i);
+        var c = document.createElement("div");
+        c.className = "cell";
+        c.setAttribute("data-ch", ch);
+        if(!/[A-Z]/.test(ch)){
+          c.classList.add("open");
+          c.textContent = ch;
+        }
+        wd.appendChild(c);
+        cells.push(c);
+      }
+      phraseArea.appendChild(wd);
+    });
+    fitCells();
+  }
+
+  // shrink the boxes until the whole phrase sits inside its panel: nothing clipped,
+  // nothing overlapping, however long the muhavara
+  function fitCells(){
+    if(!phraseArea.clientHeight) return;
+    var lo = 12, hi = 78;
+    for(var i = 0; i < 16; i++){
+      var mid = (lo + hi) / 2;
+      phraseArea.style.setProperty("--cell", mid + "px");
+      var fits = phraseArea.scrollHeight <= phraseArea.clientHeight + 1 &&
+                 phraseArea.scrollWidth  <= phraseArea.clientWidth + 1;
+      if(fits) lo = mid; else hi = mid;
+    }
+    phraseArea.style.setProperty("--cell", lo + "px");
+  }
+
+  /* ---------- play ---------- */
+  function openQuestion(i){
+    currentIdx = i;
+    solvedSet[i] = true;
+    if(serialBoxes[i]) serialBoxes[i].classList.add("used");
+    rulesScreen.classList.remove("is-active");
+    document.body.classList.remove("mode-home");
+    solved = false;
+    qBadge.textContent = String(i + 1);
+    meaningText.textContent = MUHAVARE[i].m;
+    meaningWrap.classList.remove("show");
+    hindiText.textContent = MUHAVARE[i].h;
+    hindiText.style.transform = "";
+    hindiWrap.classList.remove("show");
+    playScreen.classList.remove("solved");
+    revealBtn.disabled = false;
+    buildLetters();
+    homeScreen.classList.remove("is-active");
+    playScreen.classList.add("is-active");
+    buildPhrase(MUHAVARE[i].t);
+    window.requestAnimationFrame(fitCells);
+    sndOpen();
+  }
+
+  function showBoard(){
+    rulesScreen.classList.remove("is-active");
+    playScreen.classList.remove("is-active");
+    homeScreen.classList.add("is-active");
+    document.body.classList.add("mode-home");
+    currentIdx = -1;
+    window.requestAnimationFrame(fitBoard);
+  }
+
+  function showRules(){
+    playScreen.classList.remove("is-active");
+    homeScreen.classList.remove("is-active");
+    rulesScreen.classList.add("is-active");
+    document.body.classList.add("mode-home");
+    currentIdx = -1;
+  }
+
+  function goHome(){
+    rulesScreen.classList.remove("is-active");
+    playScreen.classList.remove("is-active");
+    homeScreen.classList.add("is-active");
+    document.body.classList.add("mode-home");
+    currentIdx = -1;
+    window.requestAnimationFrame(fitBoard);
+  }
+
+  function pick(ch){
+    if(solved || currentIdx < 0) return;
+    var btn = letterBtns[ch];
+    if(!btn || btn.classList.contains("used")) return;
+    btn.classList.add("used");
+
+    var hits = cells.filter(function(c){
+      return c.getAttribute("data-ch") === ch && !c.classList.contains("open");
+    });
+
+    if(hits.length){
+      hits.forEach(function(c, i){
+        window.setTimeout(function(){
+          c.classList.add("open");
+          c.textContent = ch;
+          sndHit(i);
+        }, i * 130);
+      });
+      window.setTimeout(checkSolved, hits.length * 130 + 380);
+    } else {
+      sndMiss();
+      phraseArea.classList.add("miss");
+      window.setTimeout(function(){ phraseArea.classList.remove("miss"); }, 420);
+    }
+  }
+
+  function checkSolved(){
+    var done = cells.every(function(c){ return c.classList.contains("open"); });
+    if(!done || solved) return;
+    solved = true;
+    phraseArea.classList.add("solved");
+    playScreen.classList.add("solved");
+    hindiWrap.classList.add("show");
+    meaningWrap.classList.add("show");
+    window.requestAnimationFrame(function(){
+      fitHindi();
+      fitCells();
+    });
+    window.setTimeout(function(){ fitHindi(); fitCells(); }, 480);
+    sndSolve();
+  }
+
+  // the Devanagari line stays on one line, shrinking only if it must
+  function fitHindi(){
+    hindiText.style.transform = "none";
+    var avail = hindiWrap.clientWidth - 8;
+    var w = hindiText.offsetWidth;
+    if(w > 0 && avail > 0 && w > avail){
+      hindiText.style.transform = "scale(" + (avail / w) + ")";
+    }
+  }
+
+  function revealAll(){
+    if(currentIdx < 0) return;
+    cells.forEach(function(c, i){
+      if(c.classList.contains("open")) return;
+      window.setTimeout(function(){
+        c.classList.add("open");
+        c.textContent = c.getAttribute("data-ch");
+      }, i * 45);
+    });
+    Object.keys(letterBtns).forEach(function(k){ letterBtns[k].classList.add("used"); });
+    window.setTimeout(checkSolved, cells.length * 45 + 320);
+  }
+
+  if(startBtn) startBtn.addEventListener("click", showBoard);
+  if(rulesBtn) rulesBtn.addEventListener("click", showRules);
+  backBtn.addEventListener("click", goHome);
+  revealBtn.addEventListener("click", revealAll);
+
+  window.addEventListener("keydown", function(e){
+    if(!playScreen.classList.contains("is-active")) return;
+    if(e.key === "Escape"){ goHome(); return; }
+    var k = (e.key || "").toUpperCase();
+    if(k.length === 1 && k >= "A" && k <= "Z") pick(k);
+  });
+
+  window.addEventListener("resize", function(){
+    window.requestAnimationFrame(function(){ fitCells(); fitBoard(); fitHindi(); });
+  });
+  if(document.fonts && document.fonts.ready){
+    document.fonts.ready.then(function(){ fitCells(); });
+  }
+
+  document.body.classList.add("mode-home");
+  buildBoard();
+  buildLetters();
+  window.requestAnimationFrame(fitBoard);
+  window.addEventListener("load", fitBoard);
+})();
+</script>
+
+</body>
+</html>
