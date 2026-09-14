@@ -718,10 +718,10 @@
     gap:clamp(10px,1.1vw,20px);
     padding:clamp(10px,1.8vh,24px) clamp(12px,1.3vw,24px);
     border-radius:12px;
-    background:linear-gradient(180deg, rgba(96,58,32,.4), rgba(30,17,9,.5));
+    background:linear-gradient(180deg, rgba(48,27,15,.72), rgba(18,10,5,.82));
     box-shadow:
-      inset 0 0 0 1px rgba(201,151,74,.32),
-      0 6px 14px -8px rgba(0,0,0,.8);
+      inset 0 0 0 1px rgba(201,151,74,.42),
+      0 6px 14px -8px rgba(0,0,0,.85);
   }
   .rule-item.span2{ grid-column:1 / -1; }
   .rule-no{
@@ -741,15 +741,19 @@
   }
   .rule-txt{
     font-family:"EB Garamond",serif;
-    font-size:clamp(.98rem,2.5vh,1.72rem);
-    line-height:1.35;
-    color:#f3e2ba;
-    text-shadow:0 1px 3px rgba(0,0,0,.7);
+    font-weight:500;
+    font-size:clamp(1.08rem,2.75vh,1.9rem);
+    line-height:1.38;
+    color:#fbeed2;
+    text-shadow:0 1px 1px rgba(0,0,0,.85);
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    text-rendering:optimizeLegibility;
   }
-  .rule-txt b{ color:#ffe9b8; font-weight:700; }
-  .rule-txt .snake{ color:#ff8f80; font-weight:700; letter-spacing:.04em; }
-  .rule-txt .pass{ color:#9fc8e4; font-weight:700; letter-spacing:.04em; }
-  .rule-txt .vow{ color:#7fdcb4; font-weight:700; letter-spacing:.06em; }
+  .rule-txt b{ color:#fff3cc; font-weight:700; }
+  .rule-txt .snake{ color:#ff9d8e; font-weight:700; letter-spacing:.04em; }
+  .rule-txt .pass{ color:#aed6ef; font-weight:700; letter-spacing:.04em; }
+  .rule-txt .vow{ color:#8fe8c1; font-weight:700; letter-spacing:.06em; }
 
   .rules-foot{
     flex:0 0 auto;
@@ -786,6 +790,115 @@
   #startBtn:focus-visible{ outline:3px solid var(--brass-1); outline-offset:5px; }
 
   #rulesBtn{ flex:0 0 auto; }
+
+  /* ---------- Round chooser ---------- */
+  .round-grid{
+    flex:1 1 auto;
+    min-height:0;
+    display:grid;
+    grid-template-columns:repeat(2, minmax(0,1fr));
+    gap:clamp(14px,2.4vw,40px);
+    align-content:center;
+    padding:clamp(8px,2vh,30px) clamp(10px,2.4vw,50px);
+  }
+  .round-card{
+    appearance:none;
+    -webkit-appearance:none;
+    border:none;
+    cursor:pointer;
+    position:relative;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:clamp(6px,1.2vh,16px);
+    padding:clamp(16px,3.4vh,46px) clamp(12px,1.8vw,34px);
+    min-height:clamp(190px,48vh,470px);
+    border-radius:18px;
+    background:linear-gradient(160deg, var(--c1) 0%, var(--c2) 100%);
+    box-shadow:
+      0 0 0 2px rgba(0,0,0,.55),
+      0 0 0 5px var(--brass-3),
+      0 0 0 7px rgba(0,0,0,.5),
+      inset 0 3px 0 rgba(255,255,255,.26),
+      inset 0 -16px 30px rgba(0,0,0,.45),
+      0 16px 32px -14px rgba(0,0,0,.9);
+    transition:transform .16s ease, filter .16s ease;
+  }
+  .round-card:hover{ transform:translateY(-6px) scale(1.03); filter:brightness(1.12); }
+  .round-card:active{ transform:translateY(-2px) scale(1.01); }
+  .round-card:focus-visible{ outline:3px solid var(--brass-1); outline-offset:6px; }
+  .round-num{
+    font-family:"Cinzel",serif;
+    font-weight:700;
+    font-size:clamp(.62rem,1.55vh,1rem);
+    letter-spacing:.26em;
+    text-transform:uppercase;
+    color:#ffeec4;
+    opacity:.9;
+    text-shadow:0 2px 4px rgba(0,0,0,.8);
+  }
+  .round-name{
+    font-family:"Cinzel Decorative","Cinzel",serif;
+    font-weight:900;
+    font-size:clamp(1.5rem,5.2vh,3.8rem);
+    line-height:1.05;
+    color:#fffaf0;
+    text-shadow:0 3px 7px rgba(0,0,0,.8), 0 0 26px rgba(0,0,0,.45);
+  }
+  .round-sub{
+    font-family:"EB Garamond",serif;
+    font-style:italic;
+    font-weight:500;
+    font-size:clamp(.8rem,1.95vh,1.3rem);
+    color:#fff3d6;
+    opacity:.92;
+    text-shadow:0 1px 3px rgba(0,0,0,.8);
+  }
+  .round-count{
+    margin-top:clamp(2px,.6vh,8px);
+    padding:clamp(3px,.6vh,7px) clamp(10px,1.1vw,18px);
+    border-radius:999px;
+    font-family:"Cinzel",serif;
+    font-weight:700;
+    font-size:clamp(.6rem,1.5vh,.95rem);
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:#3f2608;
+    background:linear-gradient(180deg, var(--brass-1), var(--brass-2) 60%, var(--brass-3));
+    box-shadow:0 0 0 2px var(--wood-3), inset 0 2px 2px rgba(255,255,255,.5);
+  }
+
+  .head-btns{ flex:0 0 auto; display:flex; gap:clamp(5px,.6vw,10px); }
+
+  /* what the team is being asked to guess, called out under the heading row */
+  .theme-banner{
+    flex:0 0 auto;
+    margin:0;
+    text-align:center;
+    font-family:"Cinzel Decorative","Cinzel",serif;
+    font-weight:900;
+    font-size:clamp(.95rem,2.5vh,1.78rem);
+    letter-spacing:.13em;
+    text-transform:uppercase;
+    white-space:nowrap;
+    overflow:hidden;
+    padding:clamp(3px,.8vh,10px) 8px;
+    background:linear-gradient(180deg,#e6fbef 0%, #8fe0b8 40%, #3fae83 80%, #1f7a5a 100%);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    filter:drop-shadow(0 2px 4px rgba(0,0,0,.85)) drop-shadow(0 0 16px rgba(90,225,165,.3));
+  }
+  .theme-banner:empty{ display:none; }
+  .theme-banner::before,
+  .theme-banner::after{
+    content:"\2726";
+    display:inline-block;
+    margin:0 .7em;
+    font-size:.62em;
+    vertical-align:middle;
+  }
 
   /* ---------- Home board: serial numbers ---------- */
   .plaque-head{
@@ -1299,13 +1412,46 @@
       </div>
     </div>
 
+    <!-- ===== ROUND CHOOSER ===== -->
+    <div class="game-screen" id="roundScreen">
+      <div class="plaque-head">
+        <span class="rule"></span>
+        <h2>Choose the Round</h2>
+        <span class="rule"></span>
+        <div class="head-btns">
+          <button class="antique-btn" id="rulesBtn2" type="button">Rules</button>
+        </div>
+      </div>
+
+      <div class="round-grid">
+        <button class="round-card" type="button" data-round="0"
+                style="--c1:#c4443c;--c2:#6d1712">
+          <span class="round-num">Round &#35; 1</span>
+          <span class="round-name">Muhaware</span>
+          <span class="round-sub">Idioms &amp; proverbs of Hindi</span>
+          <span class="round-count" id="r1count">11 Riddles</span>
+        </button>
+
+        <button class="round-card" type="button" data-round="1"
+                style="--c1:#2f7d9e;--c2:#123c55">
+          <span class="round-num">Round &#35; 2</span>
+          <span class="round-name">Mix</span>
+          <span class="round-sub">Famous dialogues &amp; taglines</span>
+          <span class="round-count" id="r2count">18 Riddles</span>
+        </button>
+      </div>
+    </div>
+
     <!-- ===== HOME BOARD ===== -->
     <div class="game-screen" id="homeScreen">
       <div class="plaque-head">
         <span class="rule"></span>
-        <h2>Muhavare &middot; Choose a Riddle</h2>
+        <h2 id="boardTitle">Muhavare &middot; Choose a Riddle</h2>
         <span class="rule"></span>
-        <button class="antique-btn" id="rulesBtn" type="button">Rules</button>
+        <div class="head-btns">
+          <button class="antique-btn" id="roundsBtn" type="button">&#8592; Rounds</button>
+          <button class="antique-btn" id="rulesBtn" type="button">Rules</button>
+        </div>
       </div>
       <div class="serial-grid" id="serialGrid"></div>
     </div>
@@ -1317,6 +1463,8 @@
         <div class="q-badge" id="qBadge" aria-label="Question number">1</div>
         <button class="antique-btn" id="revealBtn" type="button">Reveal</button>
       </div>
+
+      <p class="theme-banner" id="qTheme"></p>
 
       <div class="phrase-area" id="phraseArea" aria-live="polite"></div>
 
@@ -2646,6 +2794,83 @@
       m:"To lift the sky onto one's head — to raise a tremendous uproar." }
   ];
 
+
+  // ---- Round 2: famous dialogues and advertising taglines ----
+  var ROUND2 = [
+    { t:"Yeh Baburao Ka Style hai", th:"Famous Dialogue",
+      h:"ये बाबूराव का स्टाइल है",
+      m:"Baburao Ganpatrao Apte's signature boast — Hera Pheri (2000)." },
+    { t:"Jahapanha Tussi Great Ho", th:"Famous Dialogue",
+      h:"जहाँपनाह तुस्सी ग्रेट हो",
+      m:"The courtier's flattery of his king — a long-running meme favourite." },
+    { t:"Mujhe Ghar Jaana Hai", th:"Famous Dialogue",
+      h:"मुझे घर जाना है",
+      m:"Alia Bhatt's tearful plea — Raazi (2018)." },
+    { t:"Aata Majhi Satakli", th:"Famous Dialogue",
+      h:"आता माझी सटकली",
+      m:"Bajirao Singham's Marathi warning that his temper has snapped — Singham (2011)." },
+    { t:"Kehdo Ki Yeh Jhoot Hai", th:"Famous Dialogue",
+      h:"कह दो कि ये झूठ है",
+      m:"The anguished refusal to believe bad news." },
+    { t:"Tumse Na Ho Payega", th:"Famous Dialogue",
+      h:"तुमसे ना हो पाएगा",
+      m:"Ramadhir Singh's verdict on his son — Gangs of Wasseypur 2 (2012)." },
+    { t:"Kitne Aadmi The", th:"Famous Dialogue",
+      h:"कितने आदमी थे",
+      m:"Gabbar Singh's opening question — Sholay (1975)." },
+    { t:"Mogambo Khush Hua", th:"Famous Dialogue",
+      h:"मोगैम्बो खुश हुआ",
+      m:"Mogambo's purr of approval — Mr. India (1987)." },
+    { t:"Abba Dabba Jabba", th:"Famous Dialogue",
+      h:"अब्बा डब्बा जब्बा",
+      m:"Upasana Singh's nonsense chant — Judaai (1997)." },
+    { t:"Taste The Thunder", th:"Tagline",
+      h:"टेस्ट द थंडर",
+      m:"Thums Up." },
+    { t:"Dar Ke Aage Jeet Hai", th:"Tagline",
+      h:"डर के आगे जीत है",
+      m:"Mountain Dew." },
+    { t:"Yeh Dil Maange More", th:"Tagline",
+      h:"ये दिल मांगे मोर",
+      m:"Pepsi." },
+    { t:"Chutki Main Chipkaye", th:"Tagline",
+      h:"चुटकी में चिपकाए",
+      m:"Fevikwik." },
+    { t:"Magar Ki Jakad", th:"Tagline",
+      h:"मगर की जकड़",
+      m:"Roff tile adhesive, from Pidilite — the crocodile's grip." },
+    { t:"Ek Balm Teen Kaam", th:"Tagline",
+      h:"एक बाम तीन काम",
+      m:"A pain-relief balm — one balm, three uses." },
+    { t:"Kuch Meetha Ho Jaye", th:"Tagline",
+      h:"कुछ मीठा हो जाए",
+      m:"Cadbury Dairy Milk." },
+    { t:"Thanda Thanda Cool Cool", th:"Tagline",
+      h:"ठंडा ठंडा कूल कूल",
+      m:"Navratna Cool Oil." },
+    { t:"Utterly Butterly Delicious", th:"Tagline",
+      h:"अटरली बटरली डिलीशस",
+      m:"Amul butter." }
+  ];
+
+  // the mixed round is dealt in a fresh random order on every load, so the
+  // dialogues and taglines interleave instead of arriving in two blocks
+  (function(){
+    for(var i = ROUND2.length - 1; i > 0; i--){
+      var j = Math.floor(Math.random() * (i + 1));
+      var tmp = ROUND2[i]; ROUND2[i] = ROUND2[j]; ROUND2[j] = tmp;
+    }
+  })();
+
+  var ROUNDS = [
+    { title:"Muhavare", items:MUHAVARE },
+    { title:"Mix", items:ROUND2 }
+  ];
+
+  var currentRound = 0;
+  var QUESTIONS = ROUNDS[0].items;
+  var solvedSets = [{}, {}];
+
   var PALETTE = [
     ["#d0503f","#7d1c16"], ["#2f8a6a","#124030"], ["#dda01f","#7d4c06"],
     ["#9351b0","#4a1f68"], ["#2d78b4","#123f6a"], ["#c43a68","#6d1234"],
@@ -2665,6 +2890,11 @@
   var wheelPane   = document.querySelector(".wheel-pane");
   var phraseArea  = document.getElementById("phraseArea");
   var meaningWrap = document.getElementById("meaningScroll");
+  var qTheme      = document.getElementById("qTheme");
+  var roundScreen = document.getElementById("roundScreen");
+  var roundsBtn   = document.getElementById("roundsBtn");
+  var rulesBtn2   = document.getElementById("rulesBtn2");
+  var boardTitle  = document.getElementById("boardTitle");
   var meaningText = document.getElementById("meaningText");
   var hindiWrap   = document.getElementById("hindiAnswer");
   var hindiText   = document.getElementById("hindiText");
@@ -2681,7 +2911,6 @@
   var currentIdx = -1;
   var solved = false;
   var serialBoxes = [];
-  var solvedSet = {};
 
   /* ---------- tiny antique audio, obeys the page's own mute toggle ---------- */
   var actx = null;
@@ -2718,7 +2947,7 @@
   function buildBoard(){
     serialGrid.innerHTML = "";
     serialBoxes = [];
-    MUHAVARE.forEach(function(item, i){
+    QUESTIONS.forEach(function(item, i){
       var b = document.createElement("button");
       b.type = "button";
       b.className = "serial-box";
@@ -2727,7 +2956,7 @@
       var pair = PALETTE[i % PALETTE.length];
       b.style.setProperty("--c1", pair[0]);
       b.style.setProperty("--c2", pair[1]);
-      if(solvedSet[i]) b.classList.add("used");
+      if(solvedSets[currentRound][i]) b.classList.add("used");
       b.addEventListener("click", function(){ openQuestion(i); });
       serialGrid.appendChild(b);
       serialBoxes.push(b);
@@ -2746,7 +2975,7 @@
     var availH = serialGrid.clientHeight - padY;
     if(availW <= 0 || availH <= 0) return;
     var gap = parseFloat(cs.columnGap || cs.gap) || 14;
-    var n = MUHAVARE.length;
+    var n = QUESTIONS.length;
     var best = { tile:0, cols:4 };
     for(var c = 2; c <= Math.min(n, 8); c++){
       var rows = Math.ceil(n / c);
@@ -2842,15 +3071,17 @@
   /* ---------- play ---------- */
   function openQuestion(i){
     currentIdx = i;
-    solvedSet[i] = true;
+    solvedSets[currentRound][i] = true;
     if(serialBoxes[i]) serialBoxes[i].classList.add("used");
     rulesScreen.classList.remove("is-active");
+    roundScreen.classList.remove("is-active");
     document.body.classList.remove("mode-home");
     solved = false;
     qBadge.textContent = String(i + 1);
-    meaningText.textContent = MUHAVARE[i].m;
+    qTheme.textContent = QUESTIONS[i].th || "";
+    meaningText.textContent = QUESTIONS[i].m;
     meaningWrap.classList.remove("show");
-    hindiText.textContent = MUHAVARE[i].h;
+    hindiText.textContent = QUESTIONS[i].h;
     hindiText.style.transform = "";
     hindiWrap.classList.remove("show");
     playScreen.classList.remove("solved");
@@ -2858,34 +3089,37 @@
     buildLetters();
     homeScreen.classList.remove("is-active");
     playScreen.classList.add("is-active");
-    buildPhrase(MUHAVARE[i].t);
+    buildPhrase(QUESTIONS[i].t);
     window.requestAnimationFrame(fitCells);
     sndOpen();
   }
 
-  function showBoard(){
+  function onlyShow(screen){
     rulesScreen.classList.remove("is-active");
+    roundScreen.classList.remove("is-active");
+    homeScreen.classList.remove("is-active");
     playScreen.classList.remove("is-active");
-    homeScreen.classList.add("is-active");
+    screen.classList.add("is-active");
     document.body.classList.add("mode-home");
     currentIdx = -1;
+  }
+
+  function showRounds(){ onlyShow(roundScreen); }
+  function showRules(){ onlyShow(rulesScreen); }
+
+  function openRound(r){
+    currentRound = r;
+    QUESTIONS = ROUNDS[r].items;
+    boardTitle.innerHTML = "Round &#35; " + (r + 1) + " &middot; " +
+                           ROUNDS[r].title + " &middot; Choose a Riddle";
+    onlyShow(homeScreen);
+    buildBoard();
     window.requestAnimationFrame(fitBoard);
   }
 
-  function showRules(){
-    playScreen.classList.remove("is-active");
-    homeScreen.classList.remove("is-active");
-    rulesScreen.classList.add("is-active");
-    document.body.classList.add("mode-home");
-    currentIdx = -1;
-  }
-
+  // back from a riddle to the board of the round being played
   function goHome(){
-    rulesScreen.classList.remove("is-active");
-    playScreen.classList.remove("is-active");
-    homeScreen.classList.add("is-active");
-    document.body.classList.add("mode-home");
-    currentIdx = -1;
+    onlyShow(homeScreen);
     window.requestAnimationFrame(fitBoard);
   }
 
@@ -2954,8 +3188,16 @@
     window.setTimeout(checkSolved, cells.length * 45 + 320);
   }
 
-  if(startBtn) startBtn.addEventListener("click", showBoard);
+  if(startBtn) startBtn.addEventListener("click", showRounds);
   if(rulesBtn) rulesBtn.addEventListener("click", showRules);
+  if(rulesBtn2) rulesBtn2.addEventListener("click", showRules);
+  if(roundsBtn) roundsBtn.addEventListener("click", showRounds);
+
+  Array.prototype.forEach.call(document.querySelectorAll(".round-card"), function(card){
+    card.addEventListener("click", function(){
+      openRound(parseInt(card.getAttribute("data-round"), 10) || 0);
+    });
+  });
   backBtn.addEventListener("click", goHome);
   revealBtn.addEventListener("click", revealAll);
 
@@ -2974,6 +3216,9 @@
   }
 
   document.body.classList.add("mode-home");
+  var c1 = document.getElementById("r1count"), c2 = document.getElementById("r2count");
+  if(c1) c1.textContent = ROUNDS[0].items.length + " Riddles";
+  if(c2) c2.textContent = ROUNDS[1].items.length + " Riddles";
   buildBoard();
   buildLetters();
   window.requestAnimationFrame(fitBoard);
