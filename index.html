@@ -1502,11 +1502,11 @@
   "use strict";
 
   // ---- Segment layout: 36 equal wedges ----
-  // Five each of +100, +200, +300, +400 and 0; three each of SNAKE, PASS and
-  // -100; two +500 jackpots. The jackpots sit exactly opposite each other, the
-  // -100 penalties are spaced evenly a third of the wheel apart, and everything
-  // else is freshly jumbled on every load with no label repeating inside any run
-  // of five wedges, checked right around the rim.
+  // Six each of +100, +200, +300 and +400; four 0s; three SNAKE; three PASS;
+  // two +500 jackpots. The jackpots sit exactly opposite each other, the snakes
+  // are spaced evenly a third of the wheel apart, and everything else is freshly
+  // jumbled on every load with no label repeating inside any run of five wedges,
+  // checked right around the rim.
   var TOTAL_SEGMENTS = 36;
   var JACKPOT_GAP = 18;     // exactly 180 degrees apart
   var PENALTY_STEP = 12;    // three wedges, 120 degrees apart
@@ -1538,7 +1538,7 @@
   }
 
   function buildJumbledOrder(){
-    var POOL = {"100":5, "200":5, "300":5, "400":5, "0":5, "PASS":3};
+    var POOL = {"100":6, "200":6, "300":6, "400":6, "0":4, "PASS":3};
     var LABELS = [];
     for(var key in POOL){ if(POOL.hasOwnProperty(key)) LABELS.push(key); }
 
@@ -1553,8 +1553,7 @@
       slots[anchor] = "500";
       slots[(anchor + JACKPOT_GAP) % TOTAL_SEGMENTS] = "500";
 
-      // the penalties and the snakes each take their own evenly spaced spoke
-      if(!placeEvenTriple(slots, "-100")) continue;
+      // the snakes take their own evenly spaced spoke
       if(!placeEvenTriple(slots, "SNAKE")) continue;
 
       var failed = false;
@@ -2791,65 +2790,71 @@
       m:"Cannot dance, and blames the crooked courtyard — faulting circumstances for one's own failing." },
     { t:"Aasman Sir pe Uthana",
       h:"\u0906\u0938\u092e\u093e\u0928 \u0938\u093f\u0930 \u092a\u0947 \u0909\u0920\u093e\u0928\u093e",
-      m:"To lift the sky onto one's head — to raise a tremendous uproar." }
+      m:"To lift the sky onto one's head — to raise a tremendous uproar." },
+    { t:"Girgit ki tarah rang badalna",
+      h:"\u0917\u093f\u0930\u0917\u093f\u091f \u0915\u0940 \u0924\u0930\u0939 \u0930\u0902\u0917 \u092c\u0926\u0932\u0928\u093e",
+      m:"To change colour like a chameleon — to switch sides or opinions without shame." },
+    { t:"Diya tale andhera",
+      h:"\u0926\u093f\u092f\u093e \u0924\u0932\u0947 \u0905\u0901\u0927\u0947\u0930\u093e",
+      m:"Darkness beneath the lamp — the fault closest to the light is the one nobody sees." }
   ];
 
 
   // ---- Round 2: famous dialogues and advertising taglines ----
   var ROUND2 = [
     { t:"Yeh Baburao Ka Style hai", th:"Famous Dialogue",
-      h:"ये बाबूराव का स्टाइल है",
-      m:"Baburao Ganpatrao Apte's signature boast — Hera Pheri (2000)." },
+      h:"\u092f\u0947 \u092c\u093e\u092c\u0942\u0930\u093e\u0935 \u0915\u093e \u0938\u094d\u091f\u093e\u0907\u0932 \u0939\u0948",
+      m:"Baburao Ganpatrao Apte's signature boast \u2014 Hera Pheri (2000)." },
     { t:"Jahapanha Tussi Great Ho", th:"Famous Dialogue",
-      h:"जहाँपनाह तुस्सी ग्रेट हो",
-      m:"The courtier's flattery of his king — a long-running meme favourite." },
-    { t:"Mujhe Ghar Jaana Hai", th:"Famous Dialogue",
-      h:"मुझे घर जाना है",
-      m:"Alia Bhatt's tearful plea — Raazi (2018)." },
+      h:"\u091c\u0939\u093e\u0901\u092a\u0928\u093e\u0939 \u0924\u0941\u0938\u094d\u0938\u0940 \u0917\u094d\u0930\u0947\u091f \u0939\u094b",
+      m:"The courtier's flattery of his king \u2014 a long-running meme favourite." },
     { t:"Aata Majhi Satakli", th:"Famous Dialogue",
-      h:"आता माझी सटकली",
-      m:"Bajirao Singham's Marathi warning that his temper has snapped — Singham (2011)." },
-    { t:"Kehdo Ki Yeh Jhoot Hai", th:"Famous Dialogue",
-      h:"कह दो कि ये झूठ है",
-      m:"The anguished refusal to believe bad news." },
+      h:"\u0906\u0924\u093e \u092e\u093e\u091d\u0940 \u0938\u091f\u0915\u0932\u0940",
+      m:"Bajirao Singham's Marathi warning that his temper has snapped \u2014 Singham (2011)." },
     { t:"Tumse Na Ho Payega", th:"Famous Dialogue",
-      h:"तुमसे ना हो पाएगा",
-      m:"Ramadhir Singh's verdict on his son — Gangs of Wasseypur 2 (2012)." },
-    { t:"Kitne Aadmi The", th:"Famous Dialogue",
-      h:"कितने आदमी थे",
-      m:"Gabbar Singh's opening question — Sholay (1975)." },
+      h:"\u0924\u0941\u092e\u0938\u0947 \u0928\u093e \u0939\u094b \u092a\u093e\u090f\u0917\u093e",
+      m:"Ramadhir Singh's verdict on his son \u2014 Gangs of Wasseypur 2 (2012)." },
     { t:"Mogambo Khush Hua", th:"Famous Dialogue",
-      h:"मोगैम्बो खुश हुआ",
-      m:"Mogambo's purr of approval — Mr. India (1987)." },
+      h:"\u092e\u094b\u0917\u0948\u092e\u094d\u092c\u094b \u0916\u0941\u0936 \u0939\u0941\u0906",
+      m:"Mogambo's purr of approval \u2014 Mr. India (1987)." },
     { t:"Abba Dabba Jabba", th:"Famous Dialogue",
-      h:"अब्बा डब्बा जब्बा",
-      m:"Upasana Singh's nonsense chant — Judaai (1997)." },
+      h:"\u0905\u092c\u094d\u092c\u093e \u0921\u092c\u094d\u092c\u093e \u091c\u092c\u094d\u092c\u093e",
+      m:"Upasana Singh's nonsense chant \u2014 Judaai (1997)." },
+    { t:"Naam to suna hi hoga", th:"Famous Dialogue",
+      h:"\u0928\u093e\u092e \u0924\u094b \u0938\u0941\u0928\u093e \u0939\u0940 \u0939\u094b\u0917\u093e",
+      m:"The swaggering self-introduction \u2014 \"surely you have heard the name\"." },
+    { t:"Pushpa I hate tears", th:"Famous Dialogue",
+      h:"\u092a\u0941\u0937\u094d\u092a\u093e, \u0906\u0908 \u0939\u0947\u091f \u091f\u0940\u092f\u0930\u094d\u0938",
+      m:"Rajesh Khanna's weary plea to Pushpa \u2014 Amar Prem (1972)." },
+    { t:"Dhai kilo ka haat", th:"Famous Dialogue",
+      h:"\u0922\u093e\u0908 \u0915\u093f\u0932\u094b \u0915\u093e \u0939\u093e\u0925",
+      m:"Sunny Deol's two-and-a-half-kilo hand \u2014 Damini (1993)." },
+    { t:"Mai Tera khoon pijaunga", th:"Famous Dialogue",
+      h:"\u092e\u0948\u0902 \u0924\u0947\u0930\u093e \u0916\u0942\u0928 \u092a\u0940 \u091c\u093e\u090a\u0901\u0917\u093e",
+      m:"Dharmendra's furious threat \u2014 \"kutte, kamine, main tera khoon pee jaunga\"." },
+    { t:"Jhukega nahi saala", th:"Famous Dialogue",
+      h:"\u091d\u0941\u0915\u0947\u0917\u093e \u0928\u0939\u0940\u0902 \u0938\u093e\u0932\u093e",
+      m:"Pushpa Raj refuses to bow \u2014 Pushpa: The Rise (2021)." },
     { t:"Taste The Thunder", th:"Tagline",
-      h:"टेस्ट द थंडर",
+      h:"\u091f\u0947\u0938\u094d\u091f \u0926 \u0925\u0902\u0921\u0930",
       m:"Thums Up." },
     { t:"Dar Ke Aage Jeet Hai", th:"Tagline",
-      h:"डर के आगे जीत है",
+      h:"\u0921\u0930 \u0915\u0947 \u0906\u0917\u0947 \u091c\u0940\u0924 \u0939\u0948",
       m:"Mountain Dew." },
     { t:"Yeh Dil Maange More", th:"Tagline",
-      h:"ये दिल मांगे मोर",
+      h:"\u092f\u0947 \u0926\u093f\u0932 \u092e\u093e\u0902\u0917\u0947 \u092e\u094b\u0930",
       m:"Pepsi." },
     { t:"Chutki Main Chipkaye", th:"Tagline",
-      h:"चुटकी में चिपकाए",
+      h:"\u091a\u0941\u091f\u0915\u0940 \u092e\u0947\u0902 \u091a\u093f\u092a\u0915\u093e\u090f",
       m:"Fevikwik." },
-    { t:"Magar Ki Jakad", th:"Tagline",
-      h:"मगर की जकड़",
-      m:"Roff tile adhesive, from Pidilite — the crocodile's grip." },
-    { t:"Ek Balm Teen Kaam", th:"Tagline",
-      h:"एक बाम तीन काम",
-      m:"A pain-relief balm — one balm, three uses." },
     { t:"Kuch Meetha Ho Jaye", th:"Tagline",
-      h:"कुछ मीठा हो जाए",
+      h:"\u0915\u0941\u091b \u092e\u0940\u0920\u093e \u0939\u094b \u091c\u093e\u090f",
       m:"Cadbury Dairy Milk." },
     { t:"Thanda Thanda Cool Cool", th:"Tagline",
-      h:"ठंडा ठंडा कूल कूल",
+      h:"\u0920\u0902\u0921\u093e \u0920\u0902\u0921\u093e \u0915\u0942\u0932 \u0915\u0942\u0932",
       m:"Navratna Cool Oil." },
     { t:"Utterly Butterly Delicious", th:"Tagline",
-      h:"अटरली बटरली डिलीशस",
+      h:"\u0905\u091f\u0930\u0932\u0940 \u092c\u091f\u0930\u0932\u0940 \u0921\u093f\u0932\u0940\u0936\u0938",
       m:"Amul butter." }
   ];
 
