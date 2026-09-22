@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Guess or Mess - Snake and Ladder. Shree Balaji Rajasthani Mandal, Ganesh Utsav 2026.">
+<meta name="description" content="Guess or Mess - Wheel of FORTUNE. Shree Balaji Rajasthani Mandal, Ganesh Utsav 2026.">
 <meta name="theme-color" content="#0e2019">
-<title>Snake and Ladder</title>
+<title>Wheel of FORTUNE</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;900&family=Cinzel+Decorative:wght@700;900&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Noto+Serif+Devanagari:wght@600;700;800&display=swap">
 <style>
@@ -715,96 +715,6 @@
   }
   .game-screen.is-active{ display:flex; }
 
-  /* ---------- Rules card ---------- */
-  .rules-grid{
-    flex:1 1 auto;
-    min-height:0;
-    display:grid;
-    grid-template-columns:repeat(2, minmax(0,1fr));
-    gap:clamp(9px,1.9vh,26px) clamp(12px,1.8vw,32px);
-    align-content:center;
-    padding:clamp(4px,1vh,16px) clamp(8px,1.8vw,34px);
-    overflow:auto;
-  }
-  .rule-item{
-    display:flex;
-    align-items:flex-start;
-    gap:clamp(10px,1.1vw,20px);
-    padding:clamp(10px,1.8vh,24px) clamp(12px,1.3vw,24px);
-    border-radius:12px;
-    background:linear-gradient(180deg, rgba(48,27,15,.72), rgba(18,10,5,.82));
-    box-shadow:
-      inset 0 0 0 1px rgba(201,151,74,.42),
-      0 6px 14px -8px rgba(0,0,0,.85);
-  }
-  .rule-item.span2{ grid-column:1 / -1; }
-  .rule-no{
-    flex:0 0 auto;
-    width:clamp(30px,4.2vh,56px);
-    height:clamp(30px,4.2vh,56px);
-    border-radius:50%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-family:"Cinzel Decorative","Cinzel",serif;
-    font-weight:900;
-    font-size:clamp(.9rem,2.2vh,1.55rem);
-    color:#3f2608;
-    background:radial-gradient(circle at 34% 28%, var(--brass-1), var(--brass-2) 55%, var(--brass-3));
-    box-shadow:0 0 0 2px var(--wood-3), inset 0 2px 3px rgba(255,255,255,.5);
-  }
-  .rule-txt{
-    font-family:"EB Garamond",serif;
-    font-weight:500;
-    font-size:clamp(1.08rem,2.75vh,1.9rem);
-    line-height:1.38;
-    color:#fbeed2;
-    text-shadow:0 1px 1px rgba(0,0,0,.85);
-    -webkit-font-smoothing:antialiased;
-    -moz-osx-font-smoothing:grayscale;
-    text-rendering:optimizeLegibility;
-  }
-  .rule-txt b{ color:#fff3cc; font-weight:700; }
-  .rule-txt .snake{ color:#ff9d8e; font-weight:700; letter-spacing:.04em; }
-  .rule-txt .pass{ color:#aed6ef; font-weight:700; letter-spacing:.04em; }
-  .rule-txt .vow{ color:#8fe8c1; font-weight:700; letter-spacing:.06em; }
-
-  .rules-foot{
-    flex:0 0 auto;
-    display:flex;
-    justify-content:center;
-    padding:clamp(4px,1.1vh,14px) 0 clamp(2px,.6vh,8px);
-  }
-  #startBtn{
-    appearance:none;
-    -webkit-appearance:none;
-    border:none;
-    cursor:pointer;
-    padding:clamp(9px,1.8vh,18px) clamp(24px,3.6vw,64px);
-    border-radius:999px;
-    font-family:"Cinzel Decorative","Cinzel",serif;
-    font-weight:900;
-    font-size:clamp(.92rem,2.35vh,1.65rem);
-    letter-spacing:.13em;
-    text-transform:uppercase;
-    color:#3d2407;
-    background:linear-gradient(180deg, #fff0c4 0%, var(--brass-1) 30%, var(--brass-2) 70%, var(--brass-3) 100%);
-    box-shadow:
-      0 0 0 3px var(--wood-3),
-      0 0 0 5px rgba(201,151,74,.55),
-      inset 0 3px 3px rgba(255,255,255,.6),
-      inset 0 -6px 12px rgba(0,0,0,.35),
-      0 12px 26px -12px rgba(0,0,0,.95),
-      0 0 34px rgba(255,206,120,.3);
-    text-shadow:0 1px 0 rgba(255,255,255,.4);
-    transition:transform .14s ease, filter .14s ease;
-  }
-  #startBtn:hover{ transform:translateY(-3px) scale(1.03); filter:brightness(1.1); }
-  #startBtn:active{ transform:translateY(-1px) scale(1); }
-  #startBtn:focus-visible{ outline:3px solid var(--brass-1); outline-offset:5px; }
-
-  #rulesBtn{ flex:0 0 auto; }
-
   /* ---------- Round chooser ---------- */
   .round-grid{
     flex:1 1 auto;
@@ -1360,7 +1270,7 @@
   </div>
   <div class="head-text">
     <h1 class="event-heading"><span class="fit-line" id="eventHeading">Shree Balaji Rajasthani Mandal &middot; Ganesh Utsav 2026</span></h1>
-    <p class="sub-heading"><span class="fit-line" id="subHeading">Snake and Ladder</span></p>
+    <p class="sub-heading"><span class="fit-line" id="subHeading">Wheel of FORTUNE</span></p>
   </div>
 </header>
 
@@ -1386,58 +1296,12 @@
 
   <section class="game-pane" id="gamePane">
 
-    <!-- ===== RULES ===== -->
-    <div class="game-screen is-active" id="rulesScreen">
-      <div class="plaque-head">
-        <span class="rule"></span>
-        <h2>Rules of Play</h2>
-        <span class="rule"></span>
-      </div>
-
-      <div class="rules-grid">
-        <div class="rule-item"><div class="rule-no">1</div><div class="rule-txt">
-          Each team <b>selects a question number</b> from the board.</div></div>
-
-        <div class="rule-item"><div class="rule-no">2</div><div class="rule-txt">
-          The team <b>guesses an alphabet</b> based on their judgement.</div></div>
-
-        <div class="rule-item"><div class="rule-no">3</div><div class="rule-txt">
-          Once an alphabet is selected, <b>every box holding that alphabet opens</b> at once.
-          <b>5 wrong chances</b> are allowed per team.</div></div>
-
-        <div class="rule-item"><div class="rule-no">4</div><div class="rule-txt">
-          Vowels &mdash; <span class="vow">A E I O U</span> &mdash; may be opted only on payment of a
-          <b>premium price of 200 points</b>.</div></div>
-
-        <div class="rule-item"><div class="rule-no">5</div><div class="rule-txt">
-          If the alphabet guessed is <b>correct</b>, the team gets to <b>spin the wheel</b>
-          and earns points accordingly.</div></div>
-
-        <div class="rule-item"><div class="rule-no">6</div><div class="rule-txt">
-          On the wheel the point system is straightforward, but &mdash;
-          <span class="snake">SNAKE</span> nullifies the team's <b>entire score</b>;
-          <span class="pass">PASS</span> hands the question, in its present state, to the
-          <b>immediate next team</b>.</div></div>
-
-        <div class="rule-item span2"><div class="rule-no">7</div><div class="rule-txt">
-          At any point, a team that does not wish to play further may
-          <b>choose to discontinue</b> and <b>secure the points</b> earned up to that stage.</div></div>
-      </div>
-
-      <div class="rules-foot">
-        <button id="startBtn" type="button">Start the Game &#9656;</button>
-      </div>
-    </div>
-
     <!-- ===== ROUND CHOOSER ===== -->
-    <div class="game-screen" id="roundScreen">
+    <div class="game-screen is-active" id="roundScreen">
       <div class="plaque-head">
         <span class="rule"></span>
         <h2>Choose the Round</h2>
         <span class="rule"></span>
-        <div class="head-btns">
-          <button class="antique-btn" id="rulesBtn2" type="button">Rules</button>
-        </div>
       </div>
 
       <div class="round-grid">
@@ -1467,7 +1331,6 @@
         <span class="rule"></span>
         <div class="head-btns">
           <button class="antique-btn" id="roundsBtn" type="button">&#8592; Rounds</button>
-          <button class="antique-btn" id="rulesBtn" type="button">Rules</button>
         </div>
       </div>
       <div class="serial-grid" id="serialGrid"></div>
@@ -2959,9 +2822,6 @@
   var CONSONANTS = "BCDFGHJKLMNPQRSTVWXYZ".split("");
   var VOWELS = "AEIOU".split("");
 
-  var rulesScreen = document.getElementById("rulesScreen");
-  var startBtn    = document.getElementById("startBtn");
-  var rulesBtn    = document.getElementById("rulesBtn");
   var homeScreen  = document.getElementById("homeScreen");
   var playScreen  = document.getElementById("playScreen");
   var serialGrid  = document.getElementById("serialGrid");
@@ -2971,7 +2831,6 @@
   var qTheme      = document.getElementById("qTheme");
   var roundScreen = document.getElementById("roundScreen");
   var roundsBtn   = document.getElementById("roundsBtn");
-  var rulesBtn2   = document.getElementById("rulesBtn2");
   var boardTitle  = document.getElementById("boardTitle");
   var meaningText = document.getElementById("meaningText");
   var hindiWrap   = document.getElementById("hindiAnswer");
@@ -3151,7 +3010,6 @@
     currentIdx = i;
     solvedSets[currentRound][i] = true;
     if(serialBoxes[i]) serialBoxes[i].classList.add("used");
-    rulesScreen.classList.remove("is-active");
     roundScreen.classList.remove("is-active");
     document.body.classList.remove("mode-home");
     solved = false;
@@ -3173,7 +3031,6 @@
   }
 
   function onlyShow(screen){
-    rulesScreen.classList.remove("is-active");
     roundScreen.classList.remove("is-active");
     homeScreen.classList.remove("is-active");
     playScreen.classList.remove("is-active");
@@ -3183,7 +3040,6 @@
   }
 
   function showRounds(){ onlyShow(roundScreen); }
-  function showRules(){ onlyShow(rulesScreen); }
 
   function openRound(r){
     currentRound = r;
@@ -3266,9 +3122,6 @@
     window.setTimeout(checkSolved, cells.length * 45 + 320);
   }
 
-  if(startBtn) startBtn.addEventListener("click", showRounds);
-  if(rulesBtn) rulesBtn.addEventListener("click", showRules);
-  if(rulesBtn2) rulesBtn2.addEventListener("click", showRules);
   if(roundsBtn) roundsBtn.addEventListener("click", showRounds);
 
   Array.prototype.forEach.call(document.querySelectorAll(".round-card"), function(card){
